@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f8f5;
+  --surface: #ffffff;
+  --surface-muted: #eef2ec;
+  --foreground: #14201a;
+  --muted: #5b6b62;
+  --border: #dbe3dc;
+  --pitch: #1f9d55;
+  --pitch-strong: #157a41;
+  --gold: #e8a317;
+  --danger: #d64545;
+  --land: #cfd8d2;
+  --land-hover: #b4c3b9;
+  --sea: #e3eef5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1411;
+    --surface: #151f1a;
+    --surface-muted: #1c2822;
+    --foreground: #e8efe9;
+    --muted: #93a39a;
+    --border: #2a3832;
+    --pitch: #2fbf6b;
+    --pitch-strong: #4fd486;
+    --gold: #f2b733;
+    --danger: #ef6464;
+    --land: #33433b;
+    --land-hover: #46594f;
+    --sea: #111b17;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-pitch: var(--pitch);
+  --color-pitch-strong: var(--pitch-strong);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

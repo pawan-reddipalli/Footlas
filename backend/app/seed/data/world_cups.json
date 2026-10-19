@@ -1,0 +1,200 @@
+[
+  {
+    "year": 1930,
+    "host": "Uruguay",
+    "winner": "URU",
+    "winner_name": "Uruguay",
+    "runner_up": "Argentina",
+    "final_score": "4–2",
+    "fact": "The first World Cup had just 13 teams, and most European sides skipped the three-week boat trip to South America."
+  },
+  {
+    "year": 1934,
+    "host": "Italy",
+    "winner": "ITA",
+    "winner_name": "Italy",
+    "runner_up": "Czechoslovakia",
+    "final_score": "2–1 (after extra time)",
+    "fact": "Italy won at home in the first World Cup to need qualifying matches. The holders, Uruguay, refused to take part."
+  },
+  {
+    "year": 1938,
+    "host": "France",
+    "winner": "ITA",
+    "winner_name": "Italy",
+    "runner_up": "Hungary",
+    "final_score": "4–2",
+    "fact": "Italy became the first team to defend the World Cup. The next tournament wasn't played until 1950 because of the Second World War."
+  },
+  {
+    "year": 1950,
+    "host": "Brazil",
+    "winner": "URU",
+    "winner_name": "Uruguay",
+    "runner_up": "Brazil",
+    "final_score": "2–1 (deciding match of the final round)",
+    "fact": "Uruguay stunned around 200,000 fans at the Maracanã by beating Brazil in the deciding game. Brazilians still call it the 'Maracanazo'."
+  },
+  {
+    "year": 1954,
+    "host": "Switzerland",
+    "winner": "GER",
+    "winner_name": "West Germany",
+    "runner_up": "Hungary",
+    "final_score": "3–2",
+    "fact": "West Germany came from 2–0 down to beat Hungary's 'Mighty Magyars', who had been unbeaten for four years. Germans call it the 'Miracle of Bern'."
+  },
+  {
+    "year": 1958,
+    "host": "Sweden",
+    "winner": "BRA",
+    "winner_name": "Brazil",
+    "runner_up": "Sweden",
+    "final_score": "5–2",
+    "fact": "A 17-year-old Pelé scored twice in the final as Brazil won their first World Cup."
+  },
+  {
+    "year": 1962,
+    "host": "Chile",
+    "winner": "BRA",
+    "winner_name": "Brazil",
+    "runner_up": "Czechoslovakia",
+    "final_score": "3–1",
+    "fact": "Brazil retained the trophy even though Pelé was injured early in the tournament. Garrincha took over as their star."
+  },
+  {
+    "year": 1966,
+    "host": "England",
+    "winner": "ENG",
+    "winner_name": "England",
+    "runner_up": "West Germany",
+    "final_score": "4–2 (after extra time)",
+    "fact": "Geoff Hurst scored the only hat-trick in a World Cup final until Kylian Mbappé in 2022. Before the tournament the trophy was stolen, and a dog called Pickles found it."
+  },
+  {
+    "year": 1970,
+    "host": "Mexico",
+    "winner": "BRA",
+    "winner_name": "Brazil",
+    "runner_up": "Italy",
+    "final_score": "4–1",
+    "fact": "The first World Cup shown in colour on television. Brazil's third title let them keep the original Jules Rimet trophy."
+  },
+  {
+    "year": 1974,
+    "host": "West Germany",
+    "winner": "GER",
+    "winner_name": "West Germany",
+    "runner_up": "Netherlands",
+    "final_score": "2–1",
+    "fact": "The Netherlands scored from a penalty before West Germany had touched the ball, but the hosts came back to win in Munich."
+  },
+  {
+    "year": 1978,
+    "host": "Argentina",
+    "winner": "ARG",
+    "winner_name": "Argentina",
+    "runner_up": "Netherlands",
+    "final_score": "3–1 (after extra time)",
+    "fact": "Mario Kempes scored twice in the final and was the tournament's top scorer as Argentina won their first World Cup."
+  },
+  {
+    "year": 1982,
+    "host": "Spain",
+    "winner": "ITA",
+    "winner_name": "Italy",
+    "runner_up": "West Germany",
+    "final_score": "3–1",
+    "fact": "Paolo Rossi, who had only just returned from a ban, scored six goals to win the Golden Boot as Italy won their third title."
+  },
+  {
+    "year": 1986,
+    "host": "Mexico",
+    "winner": "ARG",
+    "winner_name": "Argentina",
+    "runner_up": "West Germany",
+    "final_score": "3–2",
+    "fact": "Diego Maradona dominated the tournament, including both of his famous goals against England in the quarter-final."
+  },
+  {
+    "year": 1990,
+    "host": "Italy",
+    "winner": "GER",
+    "winner_name": "West Germany",
+    "runner_up": "Argentina",
+    "final_score": "1–0",
+    "fact": "Andreas Brehme's late penalty won the final. Franz Beckenbauer became the second man to win the World Cup as both player and coach."
+  },
+  {
+    "year": 1994,
+    "host": "United States",
+    "winner": "BRA",
+    "winner_name": "Brazil",
+    "runner_up": "Italy",
+    "final_score": "0–0 (3–2 on penalties)",
+    "fact": "The first World Cup final decided on penalties. Roberto Baggio, Italy's star, missed the last one."
+  },
+  {
+    "year": 1998,
+    "host": "France",
+    "winner": "FRA",
+    "winner_name": "France",
+    "runner_up": "Brazil",
+    "final_score": "3–0",
+    "fact": "Zinedine Zidane headed two goals as the hosts won their first World Cup."
+  },
+  {
+    "year": 2002,
+    "host": "South Korea and Japan",
+    "winner": "BRA",
+    "winner_name": "Brazil",
+    "runner_up": "Germany",
+    "final_score": "2–0",
+    "fact": "Ronaldo scored both goals in the final and eight in the tournament, as Brazil won a record fifth title."
+  },
+  {
+    "year": 2006,
+    "host": "Germany",
+    "winner": "ITA",
+    "winner_name": "Italy",
+    "runner_up": "France",
+    "final_score": "1–1 (5–3 on penalties)",
+    "fact": "Zinedine Zidane was sent off in extra time of his last ever match, for headbutting Marco Materazzi."
+  },
+  {
+    "year": 2010,
+    "host": "South Africa",
+    "winner": "ESP",
+    "winner_name": "Spain",
+    "runner_up": "Netherlands",
+    "final_score": "1–0 (after extra time)",
+    "fact": "Andrés Iniesta scored late in extra time to give Spain their first World Cup, in the first tournament held in Africa."
+  },
+  {
+    "year": 2014,
+    "host": "Brazil",
+    "winner": "GER",
+    "winner_name": "Germany",
+    "runner_up": "Argentina",
+    "final_score": "1–0 (after extra time)",
+    "fact": "Mario Götze's extra-time volley won the final, days after Germany beat the hosts Brazil 7–1 in the semi-final."
+  },
+  {
+    "year": 2018,
+    "host": "Russia",
+    "winner": "FRA",
+    "winner_name": "France",
+    "runner_up": "Croatia",
+    "final_score": "4–2",
+    "fact": "France won their second title with a young team including 19-year-old Kylian Mbappé. VAR was used at a World Cup for the first time."
+  },
+  {
+    "year": 2022,
+    "host": "Qatar",
+    "winner": "ARG",
+    "winner_name": "Argentina",
+    "runner_up": "France",
+    "final_score": "3–3 (4–2 on penalties)",
+    "fact": "Often called the greatest final ever: Messi scored twice and Mbappé scored a hat-trick before Argentina won on penalties."
+  }
+]

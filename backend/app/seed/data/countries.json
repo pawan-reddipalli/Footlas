@@ -1,0 +1,497 @@
+[
+  {
+    "code": "ENG",
+    "name": "England",
+    "map_id": "826",
+    "confederation": "UEFA",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "world_cup_titles": 1,
+    "fact": "England and Scotland played the first official international match in 1872, a 0–0 draw in Glasgow. England's only World Cup win came at home in 1966."
+  },
+  {
+    "code": "SCO",
+    "name": "Scotland",
+    "map_id": "826",
+    "confederation": "UEFA",
+    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "world_cup_titles": 0,
+    "fact": "Scotland played in the world's first official international, against England in 1872. Celtic became the first British club to win the European Cup, in 1967."
+  },
+  {
+    "code": "WAL",
+    "name": "Wales",
+    "map_id": "826",
+    "confederation": "UEFA",
+    "flag": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "world_cup_titles": 0,
+    "fact": "Wales reached the semi-finals of Euro 2016, their first major tournament since the 1958 World Cup."
+  },
+  {
+    "code": "NIR",
+    "name": "Northern Ireland",
+    "map_id": "826",
+    "confederation": "UEFA",
+    "flag": "🇬🇧",
+    "world_cup_titles": 0,
+    "fact": "Northern Ireland reached the World Cup quarter-finals at their first attempt in 1958. George Best, one of the greatest wingers ever, was born in Belfast."
+  },
+  {
+    "code": "IRL",
+    "name": "Republic of Ireland",
+    "map_id": "372",
+    "confederation": "UEFA",
+    "flag": "🇮🇪",
+    "world_cup_titles": 0,
+    "fact": "The Republic of Ireland reached the quarter-finals of their first World Cup, in 1990."
+  },
+  {
+    "code": "ESP",
+    "name": "Spain",
+    "map_id": "724",
+    "confederation": "UEFA",
+    "flag": "🇪🇸",
+    "world_cup_titles": 1,
+    "fact": "Spain won Euro 2008, the 2010 World Cup and Euro 2012 in a row, then won a record fourth European Championship in 2024."
+  },
+  {
+    "code": "FRA",
+    "name": "France",
+    "map_id": "250",
+    "confederation": "UEFA",
+    "flag": "🇫🇷",
+    "world_cup_titles": 2,
+    "fact": "France have won the World Cup twice, in 1998 and 2018, and reached the final again in 2022."
+  },
+  {
+    "code": "GER",
+    "name": "Germany",
+    "map_id": "276",
+    "confederation": "UEFA",
+    "flag": "🇩🇪",
+    "world_cup_titles": 4,
+    "fact": "Germany have won four World Cups: three as West Germany (1954, 1974, 1990) and one as a unified Germany (2014)."
+  },
+  {
+    "code": "ITA",
+    "name": "Italy",
+    "map_id": "380",
+    "confederation": "UEFA",
+    "flag": "🇮🇹",
+    "world_cup_titles": 4,
+    "fact": "Italy have won four World Cups (1934, 1938, 1982 and 2006) and won Euro 2020, which was played in 2021."
+  },
+  {
+    "code": "POR",
+    "name": "Portugal",
+    "map_id": "620",
+    "confederation": "UEFA",
+    "flag": "🇵🇹",
+    "world_cup_titles": 0,
+    "fact": "Portugal won Euro 2016 and the UEFA Nations League in 2019 and 2025."
+  },
+  {
+    "code": "NED",
+    "name": "Netherlands",
+    "map_id": "528",
+    "confederation": "UEFA",
+    "flag": "🇳🇱",
+    "world_cup_titles": 0,
+    "fact": "The Netherlands have reached three World Cup finals (1974, 1978 and 2010) without winning one. Their 1970s 'Total Football' changed how the game is played."
+  },
+  {
+    "code": "BEL",
+    "name": "Belgium",
+    "map_id": "056",
+    "confederation": "UEFA",
+    "flag": "🇧🇪",
+    "world_cup_titles": 0,
+    "fact": "Belgium finished third at the 2018 World Cup, their best result ever."
+  },
+  {
+    "code": "CRO",
+    "name": "Croatia",
+    "map_id": "191",
+    "confederation": "UEFA",
+    "flag": "🇭🇷",
+    "world_cup_titles": 0,
+    "fact": "Croatia, a country of under four million people, reached the 2018 World Cup final and finished third in both 1998 and 2022."
+  },
+  {
+    "code": "DEN",
+    "name": "Denmark",
+    "map_id": "208",
+    "confederation": "UEFA",
+    "flag": "🇩🇰",
+    "world_cup_titles": 0,
+    "fact": "Denmark won Euro 1992 after being called up at short notice to replace Yugoslavia."
+  },
+  {
+    "code": "NOR",
+    "name": "Norway",
+    "map_id": "578",
+    "confederation": "UEFA",
+    "flag": "🇳🇴",
+    "world_cup_titles": 0,
+    "fact": "Norway beat Brazil 2–1 at the 1998 World Cup, one of the great group-stage upsets."
+  },
+  {
+    "code": "SWE",
+    "name": "Sweden",
+    "map_id": "752",
+    "confederation": "UEFA",
+    "flag": "🇸🇪",
+    "world_cup_titles": 0,
+    "fact": "Sweden hosted the 1958 World Cup and reached the final, losing 5–2 to Brazil."
+  },
+  {
+    "code": "POL",
+    "name": "Poland",
+    "map_id": "616",
+    "confederation": "UEFA",
+    "flag": "🇵🇱",
+    "world_cup_titles": 0,
+    "fact": "Poland have finished third at the World Cup twice, in 1974 and 1982."
+  },
+  {
+    "code": "SUI",
+    "name": "Switzerland",
+    "map_id": "756",
+    "confederation": "UEFA",
+    "flag": "🇨🇭",
+    "world_cup_titles": 0,
+    "fact": "Switzerland hosted the 1954 World Cup. Both FIFA (in Zurich) and UEFA (in Nyon) have their headquarters there."
+  },
+  {
+    "code": "AUT",
+    "name": "Austria",
+    "map_id": "040",
+    "confederation": "UEFA",
+    "flag": "🇦🇹",
+    "world_cup_titles": 0,
+    "fact": "Austria's 'Wunderteam' was one of Europe's best sides in the early 1930s, and Austria finished third at the 1954 World Cup."
+  },
+  {
+    "code": "SRB",
+    "name": "Serbia",
+    "map_id": "688",
+    "confederation": "UEFA",
+    "flag": "🇷🇸",
+    "world_cup_titles": 0,
+    "fact": "Belgrade's Red Star won the European Cup in 1991, when the city was part of Yugoslavia."
+  },
+  {
+    "code": "UKR",
+    "name": "Ukraine",
+    "map_id": "804",
+    "confederation": "UEFA",
+    "flag": "🇺🇦",
+    "world_cup_titles": 0,
+    "fact": "Ukraine reached the quarter-finals of their first World Cup, in 2006."
+  },
+  {
+    "code": "TUR",
+    "name": "Türkiye",
+    "map_id": "792",
+    "confederation": "UEFA",
+    "flag": "🇹🇷",
+    "world_cup_titles": 0,
+    "fact": "Türkiye finished third at the 2002 World Cup, where Hakan Şükür scored the fastest goal in World Cup history, after 11 seconds."
+  },
+  {
+    "code": "CZE",
+    "name": "Czechia",
+    "map_id": "203",
+    "confederation": "UEFA",
+    "flag": "🇨🇿",
+    "world_cup_titles": 0,
+    "fact": "Czechoslovakia reached the World Cup final in 1934 and 1962, and the Czech Republic reached the final of Euro 96."
+  },
+  {
+    "code": "HUN",
+    "name": "Hungary",
+    "map_id": "348",
+    "confederation": "UEFA",
+    "flag": "🇭🇺",
+    "world_cup_titles": 0,
+    "fact": "Hungary's 'Mighty Magyars' beat England 6–3 at Wembley in 1953 and reached the 1954 World Cup final."
+  },
+  {
+    "code": "GEO",
+    "name": "Georgia",
+    "map_id": "268",
+    "confederation": "UEFA",
+    "flag": "🇬🇪",
+    "world_cup_titles": 0,
+    "fact": "Georgia reached their first major tournament at Euro 2024 and made it to the round of 16."
+  },
+  {
+    "code": "SVN",
+    "name": "Slovenia",
+    "map_id": "705",
+    "confederation": "UEFA",
+    "flag": "🇸🇮",
+    "world_cup_titles": 0,
+    "fact": "Slovenia, home to about two million people, has played at two World Cups, in 2002 and 2010."
+  },
+  {
+    "code": "GRE",
+    "name": "Greece",
+    "map_id": "300",
+    "confederation": "UEFA",
+    "flag": "🇬🇷",
+    "world_cup_titles": 0,
+    "fact": "Greece were huge outsiders when they won Euro 2004, beating the hosts Portugal in the final."
+  },
+  {
+    "code": "ISL",
+    "name": "Iceland",
+    "map_id": "352",
+    "confederation": "UEFA",
+    "flag": "🇮🇸",
+    "world_cup_titles": 0,
+    "fact": "Iceland, with fewer than 400,000 people, knocked England out of Euro 2016 and played at the 2018 World Cup."
+  },
+  {
+    "code": "RUS",
+    "name": "Russia",
+    "map_id": "643",
+    "confederation": "UEFA",
+    "flag": "🇷🇺",
+    "world_cup_titles": 0,
+    "fact": "Russia hosted the 2018 World Cup. As the Soviet Union, the team won the first European Championship, in 1960."
+  },
+  {
+    "code": "MON",
+    "name": "Monaco",
+    "map_id": null,
+    "confederation": "UEFA",
+    "flag": "🇲🇨",
+    "world_cup_titles": 0,
+    "fact": "AS Monaco is based in the tiny principality of Monaco but plays in the French league."
+  },
+  {
+    "code": "BRA",
+    "name": "Brazil",
+    "map_id": "076",
+    "confederation": "CONMEBOL",
+    "flag": "🇧🇷",
+    "world_cup_titles": 5,
+    "fact": "Brazil have won a record five World Cups (1958, 1962, 1970, 1994 and 2002) and are the only team to have played at every World Cup."
+  },
+  {
+    "code": "ARG",
+    "name": "Argentina",
+    "map_id": "032",
+    "confederation": "CONMEBOL",
+    "flag": "🇦🇷",
+    "world_cup_titles": 3,
+    "fact": "Argentina have won three World Cups (1978, 1986 and 2022) and a record 16 Copa América titles."
+  },
+  {
+    "code": "URU",
+    "name": "Uruguay",
+    "map_id": "858",
+    "confederation": "CONMEBOL",
+    "flag": "🇺🇾",
+    "world_cup_titles": 2,
+    "fact": "Uruguay hosted and won the first World Cup in 1930, and won it again in Brazil in 1950."
+  },
+  {
+    "code": "COL",
+    "name": "Colombia",
+    "map_id": "170",
+    "confederation": "CONMEBOL",
+    "flag": "🇨🇴",
+    "world_cup_titles": 0,
+    "fact": "Colombia's James Rodríguez won the Golden Boot at the 2014 World Cup with six goals."
+  },
+  {
+    "code": "CHI",
+    "name": "Chile",
+    "map_id": "152",
+    "confederation": "CONMEBOL",
+    "flag": "🇨🇱",
+    "world_cup_titles": 0,
+    "fact": "Chile won their first Copa América as hosts in 2015, then won it again in 2016."
+  },
+  {
+    "code": "ECU",
+    "name": "Ecuador",
+    "map_id": "218",
+    "confederation": "CONMEBOL",
+    "flag": "🇪🇨",
+    "world_cup_titles": 0,
+    "fact": "Ecuador's capital, Quito, sits about 2,850 metres above sea level, which makes home games tough for visiting teams."
+  },
+  {
+    "code": "PER",
+    "name": "Peru",
+    "map_id": "604",
+    "confederation": "CONMEBOL",
+    "flag": "🇵🇪",
+    "world_cup_titles": 0,
+    "fact": "Peru have won the Copa América twice, in 1939 and 1975."
+  },
+  {
+    "code": "MEX",
+    "name": "Mexico",
+    "map_id": "484",
+    "confederation": "CONCACAF",
+    "flag": "🇲🇽",
+    "world_cup_titles": 0,
+    "fact": "Mexico is the first country to host the men's World Cup three times: 1970, 1986 and 2026."
+  },
+  {
+    "code": "USA",
+    "name": "United States",
+    "map_id": "840",
+    "confederation": "CONCACAF",
+    "flag": "🇺🇸",
+    "world_cup_titles": 0,
+    "fact": "The USA reached the semi-finals of the first World Cup in 1930, hosted the 1994 tournament and co-hosted 2026 with Canada and Mexico."
+  },
+  {
+    "code": "CAN",
+    "name": "Canada",
+    "map_id": "124",
+    "confederation": "CONCACAF",
+    "flag": "🇨🇦",
+    "world_cup_titles": 0,
+    "fact": "Canada played their first men's World Cup in 1986 and co-hosted the 2026 tournament."
+  },
+  {
+    "code": "EGY",
+    "name": "Egypt",
+    "map_id": "818",
+    "confederation": "CAF",
+    "flag": "🇪🇬",
+    "world_cup_titles": 0,
+    "fact": "Egypt have won the Africa Cup of Nations a record seven times."
+  },
+  {
+    "code": "SEN",
+    "name": "Senegal",
+    "map_id": "686",
+    "confederation": "CAF",
+    "flag": "🇸🇳",
+    "world_cup_titles": 0,
+    "fact": "Senegal beat the holders France in their first World Cup match in 2002 and went on to reach the quarter-finals."
+  },
+  {
+    "code": "NGA",
+    "name": "Nigeria",
+    "map_id": "566",
+    "confederation": "CAF",
+    "flag": "🇳🇬",
+    "world_cup_titles": 0,
+    "fact": "Nigeria won the Olympic gold medal in men's football at Atlanta 1996."
+  },
+  {
+    "code": "MAR",
+    "name": "Morocco",
+    "map_id": "504",
+    "confederation": "CAF",
+    "flag": "🇲🇦",
+    "world_cup_titles": 0,
+    "fact": "Morocco became the first African team to reach a World Cup semi-final, in 2022."
+  },
+  {
+    "code": "GHA",
+    "name": "Ghana",
+    "map_id": "288",
+    "confederation": "CAF",
+    "flag": "🇬🇭",
+    "world_cup_titles": 0,
+    "fact": "Ghana reached the 2010 World Cup quarter-finals and lost to Uruguay on penalties after Luis Suárez handled on the goal line."
+  },
+  {
+    "code": "CMR",
+    "name": "Cameroon",
+    "map_id": "120",
+    "confederation": "CAF",
+    "flag": "🇨🇲",
+    "world_cup_titles": 0,
+    "fact": "Cameroon were the first African team to reach a World Cup quarter-final, in 1990, when Roger Milla scored four goals at the age of 38."
+  },
+  {
+    "code": "CIV",
+    "name": "Côte d'Ivoire",
+    "map_id": "384",
+    "confederation": "CAF",
+    "flag": "🇨🇮",
+    "world_cup_titles": 0,
+    "fact": "Côte d'Ivoire won the Africa Cup of Nations in 2015, and again as hosts in the 2023 edition."
+  },
+  {
+    "code": "ALG",
+    "name": "Algeria",
+    "map_id": "012",
+    "confederation": "CAF",
+    "flag": "🇩🇿",
+    "world_cup_titles": 0,
+    "fact": "Algeria beat West Germany 2–1 at their first World Cup, in 1982."
+  },
+  {
+    "code": "LBR",
+    "name": "Liberia",
+    "map_id": "430",
+    "confederation": "CAF",
+    "flag": "🇱🇷",
+    "world_cup_titles": 0,
+    "fact": "Liberia's George Weah won the Ballon d'Or in 1995 and later became the country's president."
+  },
+  {
+    "code": "JPN",
+    "name": "Japan",
+    "map_id": "392",
+    "confederation": "AFC",
+    "flag": "🇯🇵",
+    "world_cup_titles": 0,
+    "fact": "Japan co-hosted the 2002 World Cup with South Korea, the first World Cup held in Asia."
+  },
+  {
+    "code": "KOR",
+    "name": "South Korea",
+    "map_id": "410",
+    "confederation": "AFC",
+    "flag": "🇰🇷",
+    "world_cup_titles": 0,
+    "fact": "South Korea reached the semi-finals of the 2002 World Cup, which they co-hosted. No other Asian team has gone that far."
+  },
+  {
+    "code": "AUS",
+    "name": "Australia",
+    "map_id": "036",
+    "confederation": "AFC",
+    "flag": "🇦🇺",
+    "world_cup_titles": 0,
+    "fact": "Australia moved from the Oceania confederation to Asia's in 2006 and won the Asian Cup in 2015."
+  },
+  {
+    "code": "KSA",
+    "name": "Saudi Arabia",
+    "map_id": "682",
+    "confederation": "AFC",
+    "flag": "🇸🇦",
+    "world_cup_titles": 0,
+    "fact": "Saudi Arabia beat the eventual champions Argentina 2–1 at the 2022 World Cup, and will host the 2034 tournament."
+  },
+  {
+    "code": "QAT",
+    "name": "Qatar",
+    "map_id": "634",
+    "confederation": "AFC",
+    "flag": "🇶🇦",
+    "world_cup_titles": 0,
+    "fact": "Qatar hosted the 2022 World Cup, the first held in the Middle East and the first played in November and December."
+  },
+  {
+    "code": "UAE",
+    "name": "United Arab Emirates",
+    "map_id": "784",
+    "confederation": "AFC",
+    "flag": "🇦🇪",
+    "world_cup_titles": 0,
+    "fact": "The United Arab Emirates have played at one World Cup, in Italy in 1990."
+  }
+]

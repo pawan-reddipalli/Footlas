@@ -1,0 +1,962 @@
+[
+  {
+    "slug": "ac-milan",
+    "name": "AC Milan",
+    "country": "ITA",
+    "city": "Milan",
+    "stadium": "San Siro",
+    "founded": 1899,
+    "nickname": "Rossoneri",
+    "fact": "AC Milan was founded by Englishmen, which is why the club uses the English spelling 'Milan' rather than 'Milano'. They have won the European Cup seven times."
+  },
+  {
+    "slug": "ajax",
+    "name": "Ajax",
+    "country": "NED",
+    "city": "Amsterdam",
+    "stadium": "Johan Cruijff ArenA",
+    "founded": 1900,
+    "nickname": "Godenzonen (Sons of the Gods)",
+    "fact": "Ajax won three European Cups in a row from 1971 to 1973. Their academy has produced players such as Johan Cruyff, Dennis Bergkamp and Frenkie de Jong."
+  },
+  {
+    "slug": "al-ahli",
+    "name": "Al-Ahli",
+    "country": "KSA",
+    "city": "Jeddah",
+    "stadium": null,
+    "founded": 1937,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "al-hilal",
+    "name": "Al-Hilal",
+    "country": "KSA",
+    "city": "Riyadh",
+    "stadium": null,
+    "founded": 1957,
+    "nickname": "The Leader",
+    "fact": "Al-Hilal have won the AFC Champions League, Asia's top club competition, a record four times."
+  },
+  {
+    "slug": "al-mokawloon",
+    "name": "Al Mokawloon Al Arab",
+    "country": "EGY",
+    "city": "Cairo",
+    "stadium": null,
+    "founded": 1973,
+    "nickname": "Arab Contractors",
+    "fact": null
+  },
+  {
+    "slug": "al-nassr",
+    "name": "Al-Nassr",
+    "country": "KSA",
+    "city": "Riyadh",
+    "stadium": "Al-Awwal Park",
+    "founded": 1955,
+    "nickname": "Al-Alami (The International)",
+    "fact": "Al-Nassr signed Cristiano Ronaldo in January 2023, a move that started a wave of big-name signings in the Saudi Pro League."
+  },
+  {
+    "slug": "al-sadd",
+    "name": "Al Sadd",
+    "country": "QAT",
+    "city": "Doha",
+    "stadium": null,
+    "founded": 1969,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "argentinos-juniors",
+    "name": "Argentinos Juniors",
+    "country": "ARG",
+    "city": "Buenos Aires",
+    "stadium": "Estadio Diego Armando Maradona",
+    "founded": 1904,
+    "nickname": "El Bicho",
+    "fact": "Argentinos Juniors gave Diego Maradona his professional debut in 1976, ten days before his 16th birthday, and later named their stadium after him."
+  },
+  {
+    "slug": "arsenal",
+    "name": "Arsenal",
+    "country": "ENG",
+    "city": "London",
+    "stadium": "Emirates Stadium",
+    "founded": 1886,
+    "nickname": "The Gunners",
+    "fact": "Arsenal were founded by workers at the Royal Arsenal munitions factory in Woolwich, which is why they are called the Gunners. Their 'Invincibles' went the 2003–04 league season unbeaten."
+  },
+  {
+    "slug": "atlas",
+    "name": "Atlas",
+    "country": "MEX",
+    "city": "Guadalajara",
+    "stadium": null,
+    "founded": 1916,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "atletico-madrid",
+    "name": "Atlético Madrid",
+    "country": "ESP",
+    "city": "Madrid",
+    "stadium": "Metropolitano",
+    "founded": 1903,
+    "nickname": "Los Colchoneros (The Mattress Makers)",
+    "fact": "Atlético's nickname, the Mattress Makers, comes from their red and white stripes, which looked like old mattress covers. Diego Simeone has coached them since 2011."
+  },
+  {
+    "slug": "atletico-mineiro",
+    "name": "Atlético Mineiro",
+    "country": "BRA",
+    "city": "Belo Horizonte",
+    "stadium": null,
+    "founded": 1908,
+    "nickname": "Galo",
+    "fact": null
+  },
+  {
+    "slug": "barcelona",
+    "name": "Barcelona",
+    "country": "ESP",
+    "city": "Barcelona",
+    "stadium": "Camp Nou",
+    "founded": 1899,
+    "nickname": "Blaugrana",
+    "fact": "Barcelona were founded in 1899 by the Swiss businessman Joan Gamper. The club's motto is 'Més que un club' (More than a club), and its La Masia academy produced Messi, Xavi and Iniesta."
+  },
+  {
+    "slug": "basel",
+    "name": "Basel",
+    "country": "SUI",
+    "city": "Basel",
+    "stadium": "St. Jakob-Park",
+    "founded": 1893,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "bastia",
+    "name": "Bastia",
+    "country": "FRA",
+    "city": "Bastia",
+    "stadium": null,
+    "founded": 1905,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "bayer-leverkusen",
+    "name": "Bayer Leverkusen",
+    "country": "GER",
+    "city": "Leverkusen",
+    "stadium": "BayArena",
+    "founded": 1904,
+    "nickname": "Die Werkself (The Factory Team)",
+    "fact": "Leverkusen were founded by workers at the Bayer pharmaceutical company. In 2023–24 they won their first Bundesliga title without losing a league game."
+  },
+  {
+    "slug": "bayern-munich",
+    "name": "Bayern Munich",
+    "country": "GER",
+    "city": "Munich",
+    "stadium": "Allianz Arena",
+    "founded": 1900,
+    "nickname": "Die Roten (The Reds)",
+    "fact": "Bayern Munich are Germany's most successful club, with six European Cups. Their Allianz Arena can light up its outside walls in different colours."
+  },
+  {
+    "slug": "benfica",
+    "name": "Benfica",
+    "country": "POR",
+    "city": "Lisbon",
+    "stadium": "Estádio da Luz",
+    "founded": 1904,
+    "nickname": "As Águias (The Eagles)",
+    "fact": "Benfica won back-to-back European Cups in 1961 and 1962. Before home games, a real eagle called Vitória flies around the Estádio da Luz."
+  },
+  {
+    "slug": "birmingham-city",
+    "name": "Birmingham City",
+    "country": "ENG",
+    "city": "Birmingham",
+    "stadium": null,
+    "founded": 1875,
+    "nickname": "Blues",
+    "fact": null
+  },
+  {
+    "slug": "boca-juniors",
+    "name": "Boca Juniors",
+    "country": "ARG",
+    "city": "Buenos Aires",
+    "stadium": "La Bombonera",
+    "founded": 1905,
+    "nickname": "Xeneizes",
+    "fact": "Boca Juniors were founded by Italian immigrants in the La Boca neighbourhood. Their blue and gold colours were inspired by the flag of a Swedish ship that sailed into the port."
+  },
+  {
+    "slug": "bordeaux",
+    "name": "Bordeaux",
+    "country": "FRA",
+    "city": "Bordeaux",
+    "stadium": null,
+    "founded": 1881,
+    "nickname": "Les Girondins",
+    "fact": null
+  },
+  {
+    "slug": "borussia-dortmund",
+    "name": "Borussia Dortmund",
+    "country": "GER",
+    "city": "Dortmund",
+    "stadium": "Signal Iduna Park",
+    "founded": 1909,
+    "nickname": "BVB",
+    "fact": "Dortmund's stadium has Europe's biggest standing terrace, the 'Yellow Wall', which holds about 25,000 fans. They won the Champions League in 1997."
+  },
+  {
+    "slug": "brighton",
+    "name": "Brighton & Hove Albion",
+    "country": "ENG",
+    "city": "Brighton",
+    "stadium": "Amex Stadium",
+    "founded": 1901,
+    "nickname": "The Seagulls",
+    "fact": null
+  },
+  {
+    "slug": "brondby",
+    "name": "Brøndby",
+    "country": "DEN",
+    "city": "Brøndby",
+    "stadium": null,
+    "founded": 1964,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "bryne",
+    "name": "Bryne",
+    "country": "NOR",
+    "city": "Bryne",
+    "stadium": null,
+    "founded": 1926,
+    "nickname": null,
+    "fact": "Bryne, a small club near Stavanger on Norway's west coast, is where Erling Haaland started his career. His father Alf-Inge also played there."
+  },
+  {
+    "slug": "cannes",
+    "name": "Cannes",
+    "country": "FRA",
+    "city": "Cannes",
+    "stadium": null,
+    "founded": 1902,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "celtic",
+    "name": "Celtic",
+    "country": "SCO",
+    "city": "Glasgow",
+    "stadium": "Celtic Park",
+    "founded": 1887,
+    "nickname": "The Bhoys",
+    "fact": "Celtic were founded in 1887 to raise money for poor Irish immigrants in Glasgow's East End. In 1967 their 'Lisbon Lions', all born near Glasgow, became the first British team to win the European Cup."
+  },
+  {
+    "slug": "chelsea",
+    "name": "Chelsea",
+    "country": "ENG",
+    "city": "London",
+    "stadium": "Stamford Bridge",
+    "founded": 1905,
+    "nickname": "The Blues",
+    "fact": "Chelsea were founded because the owner of Stamford Bridge wanted a team to play in his stadium. They won the Champions League in 2012 and 2021."
+  },
+  {
+    "slug": "corinthians",
+    "name": "Corinthians",
+    "country": "BRA",
+    "city": "São Paulo",
+    "stadium": null,
+    "founded": 1910,
+    "nickname": "Timão",
+    "fact": "Corinthians were named after Corinthian, an English amateur team that toured Brazil in 1910."
+  },
+  {
+    "slug": "cruzeiro",
+    "name": "Cruzeiro",
+    "country": "BRA",
+    "city": "Belo Horizonte",
+    "stadium": null,
+    "founded": 1921,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "dc-united",
+    "name": "D.C. United",
+    "country": "USA",
+    "city": "Washington, D.C.",
+    "stadium": null,
+    "founded": 1995,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "dinamo-zagreb",
+    "name": "Dinamo Zagreb",
+    "country": "CRO",
+    "city": "Zagreb",
+    "stadium": "Maksimir",
+    "founded": 1945,
+    "nickname": "Modri (The Blues)",
+    "fact": null
+  },
+  {
+    "slug": "dynamo-kyiv",
+    "name": "Dynamo Kyiv",
+    "country": "UKR",
+    "city": "Kyiv",
+    "stadium": "Olimpiyskiy",
+    "founded": 1927,
+    "nickname": null,
+    "fact": "Dynamo Kyiv won the European Cup Winners' Cup twice, in 1975 and 1986, under the scientific coaching of Valeriy Lobanovskyi."
+  },
+  {
+    "slug": "everton",
+    "name": "Everton",
+    "country": "ENG",
+    "city": "Liverpool",
+    "stadium": null,
+    "founded": 1878,
+    "nickname": "The Toffees",
+    "fact": "Everton have spent more seasons in England's top division than any other club. In 2025 they moved from Goodison Park to a new stadium at Bramley-Moore Dock."
+  },
+  {
+    "slug": "fenerbahce",
+    "name": "Fenerbahçe",
+    "country": "TUR",
+    "city": "Istanbul",
+    "stadium": null,
+    "founded": 1907,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "feyenoord",
+    "name": "Feyenoord",
+    "country": "NED",
+    "city": "Rotterdam",
+    "stadium": "De Kuip",
+    "founded": 1908,
+    "nickname": null,
+    "fact": "Feyenoord became the first Dutch club to win the European Cup, in 1970."
+  },
+  {
+    "slug": "flamengo",
+    "name": "Flamengo",
+    "country": "BRA",
+    "city": "Rio de Janeiro",
+    "stadium": "Maracanã",
+    "founded": 1895,
+    "nickname": "Mengão",
+    "fact": "Flamengo started as a rowing club in 1895 and added football in 1911. They are often called the best-supported club in Brazil."
+  },
+  {
+    "slug": "galatasaray",
+    "name": "Galatasaray",
+    "country": "TUR",
+    "city": "Istanbul",
+    "stadium": "RAMS Park",
+    "founded": 1905,
+    "nickname": "Cimbom",
+    "fact": "Galatasaray were founded by students at the Galatasaray High School in Istanbul. In 2000 they became the first Turkish club to win a European trophy, the UEFA Cup."
+  },
+  {
+    "slug": "genk",
+    "name": "Genk",
+    "country": "BEL",
+    "city": "Genk",
+    "stadium": null,
+    "founded": 1988,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "gremio",
+    "name": "Grêmio",
+    "country": "BRA",
+    "city": "Porto Alegre",
+    "stadium": null,
+    "founded": 1903,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "groningen",
+    "name": "Groningen",
+    "country": "NED",
+    "city": "Groningen",
+    "stadium": null,
+    "founded": 1971,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "hamburg",
+    "name": "Hamburger SV",
+    "country": "GER",
+    "city": "Hamburg",
+    "stadium": null,
+    "founded": 1887,
+    "nickname": null,
+    "fact": "Hamburger SV won the European Cup in 1983. Their stadium used to have a clock counting how long they had been in the Bundesliga, until they were relegated for the first time in 2018."
+  },
+  {
+    "slug": "honved",
+    "name": "Budapest Honvéd",
+    "country": "HUN",
+    "city": "Budapest",
+    "stadium": null,
+    "founded": 1909,
+    "nickname": null,
+    "fact": "Honvéd, formerly called Kispest, provided most of the 'Mighty Magyars' team that reached the 1954 World Cup final, including Ferenc Puskás."
+  },
+  {
+    "slug": "independiente-del-valle",
+    "name": "Independiente del Valle",
+    "country": "ECU",
+    "city": "Sangolquí",
+    "stadium": null,
+    "founded": 1958,
+    "nickname": null,
+    "fact": "Independiente del Valle, from near Quito, are famous for their academy and won the Copa Sudamericana in 2019 and 2022."
+  },
+  {
+    "slug": "inter-miami",
+    "name": "Inter Miami",
+    "country": "USA",
+    "city": "Miami",
+    "stadium": null,
+    "founded": 2018,
+    "nickname": "The Herons",
+    "fact": "Inter Miami were founded by David Beckham and his partners. Lionel Messi led them to their first trophy, the 2023 Leagues Cup, weeks after he arrived."
+  },
+  {
+    "slug": "inter-milan",
+    "name": "Inter Milan",
+    "country": "ITA",
+    "city": "Milan",
+    "stadium": "San Siro",
+    "founded": 1908,
+    "nickname": "Nerazzurri",
+    "fact": "Inter was founded in 1908 by members who left AC Milan because they wanted to sign foreign players, hence the name 'Internazionale'. Both clubs share the San Siro."
+  },
+  {
+    "slug": "juventus",
+    "name": "Juventus",
+    "country": "ITA",
+    "city": "Turin",
+    "stadium": "Allianz Stadium",
+    "founded": 1897,
+    "nickname": "La Vecchia Signora (The Old Lady)",
+    "fact": "Juventus were founded by students in Turin. Their black-and-white stripes came from Notts County in England, after a shipment of pink shirts kept fading."
+  },
+  {
+    "slug": "kawasaki-frontale",
+    "name": "Kawasaki Frontale",
+    "country": "JPN",
+    "city": "Kawasaki",
+    "stadium": null,
+    "founded": 1955,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "la-galaxy",
+    "name": "LA Galaxy",
+    "country": "USA",
+    "city": "Los Angeles",
+    "stadium": "Dignity Health Sports Park",
+    "founded": 1994,
+    "nickname": null,
+    "fact": "LA Galaxy have won MLS Cup a record six times. David Beckham's move there in 2007 put Major League Soccer in the global spotlight."
+  },
+  {
+    "slug": "lafc",
+    "name": "Los Angeles FC",
+    "country": "USA",
+    "city": "Los Angeles",
+    "stadium": "BMO Stadium",
+    "founded": 2014,
+    "nickname": "LAFC",
+    "fact": null
+  },
+  {
+    "slug": "las-palmas",
+    "name": "Las Palmas",
+    "country": "ESP",
+    "city": "Las Palmas",
+    "stadium": null,
+    "founded": 1949,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "lazio",
+    "name": "Lazio",
+    "country": "ITA",
+    "city": "Rome",
+    "stadium": "Stadio Olimpico",
+    "founded": 1900,
+    "nickname": "Biancocelesti",
+    "fact": "Lazio play in sky blue and white, the colours of Greece, as a tribute to the home of the Olympic Games. They share the Stadio Olimpico with city rivals Roma."
+  },
+  {
+    "slug": "le-havre",
+    "name": "Le Havre",
+    "country": "FRA",
+    "city": "Le Havre",
+    "stadium": null,
+    "founded": 1872,
+    "nickname": null,
+    "fact": "Le Havre is the oldest football club in France, founded in 1872."
+  },
+  {
+    "slug": "lech-poznan",
+    "name": "Lech Poznań",
+    "country": "POL",
+    "city": "Poznań",
+    "stadium": null,
+    "founded": 1922,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "leicester-city",
+    "name": "Leicester City",
+    "country": "ENG",
+    "city": "Leicester",
+    "stadium": "King Power Stadium",
+    "founded": 1884,
+    "nickname": "The Foxes",
+    "fact": "Leicester won the 2015–16 Premier League after starting the season as 5000-to-1 outsiders, one of the biggest shocks in sport."
+  },
+  {
+    "slug": "lille",
+    "name": "Lille",
+    "country": "FRA",
+    "city": "Lille",
+    "stadium": null,
+    "founded": 1944,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "liverpool",
+    "name": "Liverpool",
+    "country": "ENG",
+    "city": "Liverpool",
+    "stadium": "Anfield",
+    "founded": 1892,
+    "nickname": "The Reds",
+    "fact": "Liverpool have won six European Cups, more than any other English club. Fans sing 'You'll Never Walk Alone' before every home game at Anfield."
+  },
+  {
+    "slug": "lyon",
+    "name": "Lyon",
+    "country": "FRA",
+    "city": "Lyon",
+    "stadium": null,
+    "founded": 1950,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "mallorca",
+    "name": "Mallorca",
+    "country": "ESP",
+    "city": "Palma",
+    "stadium": null,
+    "founded": 1916,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "malmo",
+    "name": "Malmö FF",
+    "country": "SWE",
+    "city": "Malmö",
+    "stadium": null,
+    "founded": 1910,
+    "nickname": null,
+    "fact": "Malmö FF reached the European Cup final in 1979, the only Swedish club to do so."
+  },
+  {
+    "slug": "manchester-city",
+    "name": "Manchester City",
+    "country": "ENG",
+    "city": "Manchester",
+    "stadium": "Etihad Stadium",
+    "founded": 1880,
+    "nickname": "The Citizens",
+    "fact": "Manchester City began life as St. Mark's (West Gorton), a church team. In 2023 they won the treble of Premier League, FA Cup and Champions League."
+  },
+  {
+    "slug": "manchester-united",
+    "name": "Manchester United",
+    "country": "ENG",
+    "city": "Manchester",
+    "stadium": "Old Trafford",
+    "founded": 1878,
+    "nickname": "The Red Devils",
+    "fact": "Manchester United started as Newton Heath, a railway workers' team. They have won 20 English league titles, and Old Trafford is nicknamed the 'Theatre of Dreams'."
+  },
+  {
+    "slug": "marseille",
+    "name": "Marseille",
+    "country": "FRA",
+    "city": "Marseille",
+    "stadium": "Stade Vélodrome",
+    "founded": 1899,
+    "nickname": "OM",
+    "fact": "Marseille became the first French club to win the Champions League, in 1993."
+  },
+  {
+    "slug": "metz",
+    "name": "Metz",
+    "country": "FRA",
+    "city": "Metz",
+    "stadium": null,
+    "founded": 1932,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "millwall",
+    "name": "Millwall",
+    "country": "ENG",
+    "city": "London",
+    "stadium": null,
+    "founded": 1885,
+    "nickname": "The Lions",
+    "fact": null
+  },
+  {
+    "slug": "molde",
+    "name": "Molde",
+    "country": "NOR",
+    "city": "Molde",
+    "stadium": null,
+    "founded": 1911,
+    "nickname": null,
+    "fact": "Molde, on Norway's west coast, won the Norwegian league three times under Ole Gunnar Solskjær, and gave Erling Haaland his breakthrough."
+  },
+  {
+    "slug": "monaco",
+    "name": "AS Monaco",
+    "country": "MON",
+    "city": "Monaco",
+    "stadium": "Stade Louis II",
+    "founded": 1924,
+    "nickname": "Les Monégasques",
+    "fact": null
+  },
+  {
+    "slug": "nacional",
+    "name": "Nacional",
+    "country": "URU",
+    "city": "Montevideo",
+    "stadium": null,
+    "founded": 1899,
+    "nickname": null,
+    "fact": "Nacional were founded in 1899 as the first club in Uruguay created by local people rather than British immigrants."
+  },
+  {
+    "slug": "napoli",
+    "name": "Napoli",
+    "country": "ITA",
+    "city": "Naples",
+    "stadium": "Stadio Diego Armando Maradona",
+    "founded": 1926,
+    "nickname": "Partenopei",
+    "fact": "Napoli won their first two Serie A titles with Diego Maradona, in 1987 and 1990, and renamed their stadium after him in 2020."
+  },
+  {
+    "slug": "new-york-cosmos",
+    "name": "New York Cosmos",
+    "country": "USA",
+    "city": "New York",
+    "stadium": null,
+    "founded": 1970,
+    "nickname": null,
+    "fact": "The New York Cosmos signed Pelé in 1975 and Franz Beckenbauer in 1977, drawing huge crowds to football in the United States."
+  },
+  {
+    "slug": "new-york-red-bulls",
+    "name": "New York Red Bulls",
+    "country": "USA",
+    "city": "Harrison, New Jersey",
+    "stadium": null,
+    "founded": 1994,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "newells-old-boys",
+    "name": "Newell's Old Boys",
+    "country": "ARG",
+    "city": "Rosario",
+    "stadium": null,
+    "founded": 1903,
+    "nickname": "La Lepra",
+    "fact": "Newell's Old Boys in Rosario is the club where Lionel Messi played as a boy before moving to Barcelona."
+  },
+  {
+    "slug": "nottingham-forest",
+    "name": "Nottingham Forest",
+    "country": "ENG",
+    "city": "Nottingham",
+    "stadium": "City Ground",
+    "founded": 1865,
+    "nickname": "Forest",
+    "fact": "Nottingham Forest won the European Cup in 1979 and 1980, just a few years after being promoted from the second division under Brian Clough."
+  },
+  {
+    "slug": "paris-saint-germain",
+    "name": "Paris Saint-Germain",
+    "country": "FRA",
+    "city": "Paris",
+    "stadium": "Parc des Princes",
+    "founded": 1970,
+    "nickname": "PSG",
+    "fact": "PSG were founded only in 1970. In 2025 they won their first Champions League, beating Inter 5–0 in the biggest winning margin in a final."
+  },
+  {
+    "slug": "parma",
+    "name": "Parma",
+    "country": "ITA",
+    "city": "Parma",
+    "stadium": null,
+    "founded": 1913,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "porto",
+    "name": "Porto",
+    "country": "POR",
+    "city": "Porto",
+    "stadium": "Estádio do Dragão",
+    "founded": 1893,
+    "nickname": "Dragões (Dragons)",
+    "fact": "Porto won the Champions League in 2004 under José Mourinho, and the European Cup in 1987."
+  },
+  {
+    "slug": "psv",
+    "name": "PSV Eindhoven",
+    "country": "NED",
+    "city": "Eindhoven",
+    "stadium": "Philips Stadion",
+    "founded": 1913,
+    "nickname": null,
+    "fact": "PSV were founded for workers of the electronics company Philips, which is what the 'P' stands for. They won the European Cup in 1988."
+  },
+  {
+    "slug": "rb-leipzig",
+    "name": "RB Leipzig",
+    "country": "GER",
+    "city": "Leipzig",
+    "stadium": "Red Bull Arena",
+    "founded": 2009,
+    "nickname": "Die Roten Bullen",
+    "fact": null
+  },
+  {
+    "slug": "rb-salzburg",
+    "name": "Red Bull Salzburg",
+    "country": "AUT",
+    "city": "Salzburg",
+    "stadium": "Red Bull Arena",
+    "founded": 1933,
+    "nickname": "Die Roten Bullen",
+    "fact": "Red Bull Salzburg's scouting network helped launch Erling Haaland, Sadio Mané and Dominik Szoboszlai on their way to Europe's biggest clubs."
+  },
+  {
+    "slug": "real-madrid",
+    "name": "Real Madrid",
+    "country": "ESP",
+    "city": "Madrid",
+    "stadium": "Santiago Bernabéu",
+    "founded": 1902,
+    "nickname": "Los Blancos",
+    "fact": "Real Madrid have won the European Cup a record 15 times, including the first five editions from 1956 to 1960. 'Real' means royal: King Alfonso XIII gave the club the title in 1920."
+  },
+  {
+    "slug": "real-sociedad",
+    "name": "Real Sociedad",
+    "country": "ESP",
+    "city": "San Sebastián",
+    "stadium": null,
+    "founded": 1909,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "roma",
+    "name": "Roma",
+    "country": "ITA",
+    "city": "Rome",
+    "stadium": "Stadio Olimpico",
+    "founded": 1927,
+    "nickname": "I Giallorossi",
+    "fact": null
+  },
+  {
+    "slug": "rubin-kazan",
+    "name": "Rubin Kazan",
+    "country": "RUS",
+    "city": "Kazan",
+    "stadium": null,
+    "founded": 1958,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "sampdoria",
+    "name": "Sampdoria",
+    "country": "ITA",
+    "city": "Genoa",
+    "stadium": null,
+    "founded": 1946,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "santos",
+    "name": "Santos",
+    "country": "BRA",
+    "city": "Santos",
+    "stadium": "Vila Belmiro",
+    "founded": 1912,
+    "nickname": "Peixe (The Fish)",
+    "fact": "Pelé spent almost his whole career at Santos, and the club also launched Neymar. During a 1969 tour, a ceasefire was reportedly called in Nigeria's civil war so people could watch Pelé play."
+  },
+  {
+    "slug": "sevilla",
+    "name": "Sevilla",
+    "country": "ESP",
+    "city": "Seville",
+    "stadium": null,
+    "founded": 1890,
+    "nickname": null,
+    "fact": "Sevilla have won the UEFA Cup and Europa League a record seven times."
+  },
+  {
+    "slug": "southampton",
+    "name": "Southampton",
+    "country": "ENG",
+    "city": "Southampton",
+    "stadium": "St Mary's Stadium",
+    "founded": 1885,
+    "nickname": "The Saints",
+    "fact": "Southampton's academy has produced Gareth Bale, Theo Walcott and Alex Oxlade-Chamberlain. The club started as a church team, which is why they are called the Saints."
+  },
+  {
+    "slug": "sparta-prague",
+    "name": "Sparta Prague",
+    "country": "CZE",
+    "city": "Prague",
+    "stadium": null,
+    "founded": 1893,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "sporting-cp",
+    "name": "Sporting CP",
+    "country": "POR",
+    "city": "Lisbon",
+    "stadium": "Estádio José Alvalade",
+    "founded": 1906,
+    "nickname": "Leões (Lions)",
+    "fact": "Sporting's academy produced both Cristiano Ronaldo and Luís Figo, two Ballon d'Or winners."
+  },
+  {
+    "slug": "stromsgodset",
+    "name": "Strømsgodset",
+    "country": "NOR",
+    "city": "Drammen",
+    "stadium": null,
+    "founded": 1907,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "tottenham",
+    "name": "Tottenham Hotspur",
+    "country": "ENG",
+    "city": "London",
+    "stadium": "Tottenham Hotspur Stadium",
+    "founded": 1882,
+    "nickname": "Spurs",
+    "fact": "Tottenham's name comes from Harry Hotspur, a medieval nobleman whose family owned land in the area. In 1961 they became the first club in the 20th century to win the English league and FA Cup double."
+  },
+  {
+    "slug": "udinese",
+    "name": "Udinese",
+    "country": "ITA",
+    "city": "Udine",
+    "stadium": null,
+    "founded": 1896,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "vancouver-whitecaps",
+    "name": "Vancouver Whitecaps",
+    "country": "CAN",
+    "city": "Vancouver",
+    "stadium": null,
+    "founded": 2009,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "villarreal",
+    "name": "Villarreal",
+    "country": "ESP",
+    "city": "Villarreal",
+    "stadium": "Estadio de la Cerámica",
+    "founded": 1923,
+    "nickname": "El Submarino Amarillo (The Yellow Submarine)",
+    "fact": "Villarreal come from a town of about 50,000 people, yet won the Europa League in 2021. Their nickname, the Yellow Submarine, comes from the Beatles song."
+  },
+  {
+    "slug": "vissel-kobe",
+    "name": "Vissel Kobe",
+    "country": "JPN",
+    "city": "Kobe",
+    "stadium": null,
+    "founded": 1966,
+    "nickname": null,
+    "fact": null
+  },
+  {
+    "slug": "wolfsburg",
+    "name": "Wolfsburg",
+    "country": "GER",
+    "city": "Wolfsburg",
+    "stadium": "Volkswagen Arena",
+    "founded": 1945,
+    "nickname": "Die Wölfe",
+    "fact": null
+  }
+]
