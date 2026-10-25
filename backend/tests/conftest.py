@@ -1,7 +1,7 @@
 import os
 
 os.environ.setdefault(
-    "DATABASE_URL", "postgresql+psycopg://footlas:footlas@localhost:5432/footlas_test"
+    "DATABASE_URL", "postgresql+psycopg://footlas:footlas@localhost:5434/footlas_test"
 )
 os.environ["AUTH_MODE"] = "dev"
 os.environ["ENVIRONMENT"] = "test"

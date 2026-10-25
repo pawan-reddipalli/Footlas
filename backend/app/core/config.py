@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     environment: Literal["development", "test", "production"] = "development"
-    database_url: str = "postgresql+psycopg://footlas:footlas@localhost:5432/footlas"
+    database_url: str = "postgresql+psycopg://footlas:footlas@localhost:5434/footlas"
 
     auth_mode: Literal["dev", "clerk"] = "dev"
     clerk_issuer: str = ""

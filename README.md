@@ -14,16 +14,16 @@ through quick games, with a Learn Card after every answer.
 
 ## Run it locally
 
-You need Python 3.12+, Node 20+ and Postgres 16 (or Docker).
+You need Python 3.12+ (easiest with [uv](https://docs.astral.sh/uv/)), Node 20+ and Docker.
 
 ```bash
 # 1. Database
-docker compose up -d                      # Postgres on localhost:5432
+docker compose up -d                      # Postgres on localhost:5434
 
 # 2. API (http://localhost:8000, docs at /docs)
 cd backend
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
+uv venv -p 3.12 && source .venv/bin/activate
+uv pip install -e ".[dev]"
 cp .env.example .env
 alembic upgrade head
 python -m app.seed                        # load countries, clubs, players, questions
@@ -35,6 +35,9 @@ cp .env.example .env.local
 npm install
 npm run dev
 ```
+
+The database uses port 5434 so it doesn't clash with a Postgres already running on
+5432. Change `docker-compose.yml` and `DATABASE_URL` together if you need another port.
 
 Without Clerk keys the app runs in **guest mode**: each browser gets a guest id and the
 API (with `AUTH_MODE=dev`) trusts it. To use real accounts, create a Clerk app, put its

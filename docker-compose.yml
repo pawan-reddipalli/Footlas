@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: footlas
       POSTGRES_DB: footlas
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./backend/scripts/create-test-db.sql:/docker-entrypoint-initdb.d/create-test-db.sql:ro
