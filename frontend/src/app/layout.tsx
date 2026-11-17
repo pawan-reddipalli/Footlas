@@ -23,7 +23,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:py-10">{children}</main>
           <footer className="mx-auto w-full max-w-4xl px-4 py-6 text-xs text-muted">
-            Footlas is free to learn, forever.
+            Footlas is free to learn, forever.{" "}
+            <a
+              href="https://buymeacoffee.com/itrixy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Buy me a coffee ☕
+            </a>
           </footer>
         </AuthProvider>
       </body>
