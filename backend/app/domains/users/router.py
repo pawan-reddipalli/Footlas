@@ -1,7 +1,10 @@
-from fastapi import APIRouter, HTTPException
+from typing import Annotated
+
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
-from app.core.auth import DB, CurrentUser
+from app.core.auth import DB, CurrentIdentity, CurrentUser
+from app.core.config import Settings, get_settings
 from app.core.entitlements import entitlements_for
 from app.domains.gameplay.service import progress_summary
 from app.domains.users import service
@@ -41,6 +44,25 @@ def _profile(db: DB, user: CurrentUser) -> dict:
 
 class ProfileUpdate(BaseModel):
     username: str
+
+
+@router.get("/auth/session")
+def get_session(
+    identity: CurrentIdentity,
+    user: CurrentUser,
+    settings: Annotated[Settings, Depends(get_settings)],
+) -> dict:
+    """The smallest protected endpoint: who the API thinks you are.
+
+    Handy for checking a Clerk setup end to end, since it fails with 401 unless the
+    session token verifies.
+    """
+    return {
+        "auth_mode": settings.auth_mode,
+        "auth_id": identity.auth_id,
+        "user_id": user.id,
+        "username": user.username,
+    }
 
 
 @router.get("/me")

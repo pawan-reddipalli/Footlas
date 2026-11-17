@@ -56,7 +56,7 @@ export function Dashboard() {
         )}
         {ready && !signedIn && (
           <div>
-            <AccountControls />
+            <AccountControls showSignUp />
           </div>
         )}
       </section>

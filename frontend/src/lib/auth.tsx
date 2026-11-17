@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  ClerkProvider,
-  SignInButton,
-  UserButton,
-  useAuth,
-} from "@clerk/nextjs";
+import { ClerkProvider, SignInButton, SignUpButton, UserButton, useAuth } from "@clerk/nextjs";
 import { createContext, useCallback, useContext, useMemo } from "react";
+
+import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/clerk-routes";
 
 /**
  * One auth interface for the whole app.
@@ -71,7 +68,12 @@ const guestState: AuthState = {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   if (CLERK_KEY) {
     return (
-      <ClerkProvider publishableKey={CLERK_KEY}>
+      <ClerkProvider
+        publishableKey={CLERK_KEY}
+        signInUrl={SIGN_IN_URL}
+        signUpUrl={SIGN_UP_URL}
+        afterSignOutUrl="/"
+      >
         <ClerkBridge>{children}</ClerkBridge>
       </ClerkProvider>
     );
@@ -79,7 +81,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return <AuthContext.Provider value={guestState}>{children}</AuthContext.Provider>;
 }
 
-export function AccountControls() {
+export function AccountControls({ showSignUp = false }: { showSignUp?: boolean }) {
   const { mode, ready, signedIn } = useAuthState();
   if (mode === "guest") {
     return (
@@ -92,14 +94,23 @@ export function AccountControls() {
     );
   }
   if (!ready) return null;
-  return signedIn ? (
-    <UserButton />
-  ) : (
-    <SignInButton mode="modal">
-      <button className="rounded-full bg-pitch px-4 py-1.5 text-sm font-semibold text-white hover:bg-pitch-strong">
-        Sign in
-      </button>
-    </SignInButton>
+  if (signedIn) return <UserButton />;
+  // Redirect mode opens the /sign-in and /sign-up pages and returns here afterwards.
+  return (
+    <div className="flex items-center gap-2">
+      {showSignUp && (
+        <SignUpButton>
+          <button className="rounded-full border border-border px-4 py-1.5 text-sm font-semibold hover:border-pitch">
+            Create account
+          </button>
+        </SignUpButton>
+      )}
+      <SignInButton>
+        <button className="rounded-full bg-pitch px-4 py-1.5 text-sm font-semibold text-white hover:bg-pitch-strong">
+          Sign in
+        </button>
+      </SignInButton>
+    </div>
   );
 }
 
@@ -110,7 +121,7 @@ export function SignInPrompt({ message }: { message: string }) {
       <p className="text-sm text-muted">
         Your XP, streak and achievements are saved to your account.
       </p>
-      <AccountControls />
+      <AccountControls showSignUp />
     </div>
   );
 }

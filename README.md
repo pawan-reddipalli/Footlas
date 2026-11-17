@@ -41,8 +41,8 @@ The database uses port 5434 so it doesn't clash with a Postgres already running 
 
 Without Clerk keys the app runs in **guest mode**: each browser gets a guest id and the
 API (with `AUTH_MODE=dev`) trusts it. To use real accounts, create a Clerk app, put its
-keys in `frontend/.env.local`, and set `AUTH_MODE=clerk`, `CLERK_ISSUER` and
-`CLERK_JWKS_URL` in `backend/.env`.
+keys in `frontend/.env.local`, and set `AUTH_MODE=clerk` and `CLERK_ISSUER` in
+`backend/.env`. The steps are in [Architecture > Turning on Clerk](docs/ARCHITECTURE.md#turning-on-clerk).
 
 ## Tests
 
