@@ -186,15 +186,17 @@ const BALL: Partial<Record<Cue, BallReaction>> = {
 
 export function play(cue: Cue) {
   if (typeof window === "undefined") return;
+  // The sound toggle mutes haptics too: one switch for "keep it quiet".
   if (soundEnabled()) {
     try {
       SOUNDS[cue]();
     } catch {
       /* audio can fail on locked-down browsers; feedback still has visuals */
     }
+    const pattern = HAPTICS[cue];
+    const activated = navigator.userActivation?.hasBeenActive ?? true;
+    if (pattern && activated && "vibrate" in navigator) navigator.vibrate(pattern);
   }
-  const pattern = HAPTICS[cue];
-  if (pattern && "vibrate" in navigator) navigator.vibrate(pattern);
   const reaction = BALL[cue];
   if (reaction) window.dispatchEvent(new CustomEvent(BALL_EVENT, { detail: reaction }));
 }

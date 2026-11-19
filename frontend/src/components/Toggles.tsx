@@ -82,7 +82,7 @@ export function SoundToggle() {
         if (!enabled) setTimeout(() => play("whistle"), 0);
       }}
       className={iconButton}
-      aria-label={enabled ? "Mute sounds" : "Turn sounds on"}
+      aria-label="Sound"
       aria-pressed={enabled}
       title={enabled ? "Sound on" : "Sound off"}
     >

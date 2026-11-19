@@ -37,10 +37,20 @@ export function GameHud({
       play("levelUp");
       void confettiBurst("level");
       setLevelUp(progress.level);
-      const t = setTimeout(() => setLevelUp(null), 2600);
-      return () => clearTimeout(t);
     }
   }, [progress]);
+
+  // Auto-dismiss, and let Escape close it too.
+  useEffect(() => {
+    if (levelUp === null) return;
+    const t = setTimeout(() => setLevelUp(null), 2600);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLevelUp(null);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [levelUp]);
 
   return (
     <>
@@ -63,6 +73,9 @@ export function GameHud({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLevelUp(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Promoted to level ${levelUp}`}
           >
             <motion.div
               className="sticker flex flex-col items-center gap-2 rounded-3xl px-10 py-8 text-center"
@@ -76,7 +89,14 @@ export function GameHud({
                 Level <span className="font-score text-pitch">{levelUp}</span>
               </span>
               <span className="text-lg font-semibold">{levelName(levelUp)}</span>
-              <span className="text-sm text-muted">A fresh ball to stitch. Tap to carry on.</span>
+              <button
+                type="button"
+                autoFocus
+                onClick={() => setLevelUp(null)}
+                className="mt-2 rounded-full bg-pitch px-5 py-2 text-sm font-semibold text-on-pitch"
+              >
+                A fresh ball to stitch. Carry on
+              </button>
             </motion.div>
           </motion.div>
         )}

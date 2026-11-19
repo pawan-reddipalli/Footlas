@@ -36,6 +36,9 @@ export function QuestionView(props: Props) {
   return (
     <div className="flex flex-col gap-5">
       {props.question.mode === "map" ? <MapQuestion {...props} /> : <ChoiceQuestion {...props} />}
+      <p className="sr-only" aria-live="polite">
+        {props.result ? `${props.result.correct ? "Correct" : "Not quite"}. ${props.result.learn.title}` : ""}
+      </p>
       <AnimatePresence>{props.result && <LearnCard result={props.result} />}</AnimatePresence>
     </div>
   );
@@ -68,7 +71,7 @@ function MapQuestion({ question, result, pending, onAnswer }: Props) {
             ? `Answer: ${result.answer.flag ?? ""} ${result.answer.country}`
             : selected
               ? `${countryName(selected) ?? "That country"} picked. Lock it in, or tap another.`
-              : "Tap a country to roll the ball there. Pinch or use + to zoom for small nations."}
+              : "Tap a country to roll the ball there. Use + to zoom in on small nations."}
         </p>
       </div>
       <motion.div animate={answered && given !== correctId ? SHAKE : undefined}>

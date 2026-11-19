@@ -35,8 +35,10 @@ let webglSupport: boolean | null = null;
 function hasWebGL(): boolean {
   if (webglSupport === null) {
     try {
-      const canvas = document.createElement("canvas");
-      webglSupport = !!(canvas.getContext("webgl2") ?? canvas.getContext("webgl"));
+      // three.js needs WebGL2. Release the probe context straight away.
+      const gl = document.createElement("canvas").getContext("webgl2");
+      webglSupport = !!gl;
+      gl?.getExtension("WEBGL_lose_context")?.loseContext();
     } catch {
       webglSupport = false;
     }

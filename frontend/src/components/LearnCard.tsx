@@ -29,11 +29,10 @@ export function LearnCard({ result }: { result: AnswerResult }) {
         exit={{ opacity: 0, y: 10 }}
         transition={{ type: "spring", stiffness: 160, damping: 18, delay: 0.25 }}
         style={{ transformOrigin: "left center" }}
-        aria-live="polite"
       >
         <header
           className={`flex items-center justify-between gap-3 px-5 py-3 ${
-            correct ? "bg-pitch text-on-pitch" : "bg-danger text-white"
+            correct ? "bg-pitch text-on-pitch" : "bg-danger text-on-danger"
           }`}
         >
           <p className="font-display text-2xl leading-none font-black uppercase">{verdict}</p>

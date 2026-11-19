@@ -109,9 +109,9 @@ export function DailyGame() {
                   state === "goal"
                     ? "bg-pitch text-on-pitch"
                     : state === "miss"
-                      ? "bg-danger/85 text-white"
+                      ? "bg-danger text-on-danger"
                       : state === "live"
-                        ? "bg-pick text-black"
+                        ? "bg-pick text-pick-ink"
                         : "bg-surface-muted text-muted"
                 } ${i === current ? "ring-2 ring-foreground/40 ring-offset-2 ring-offset-background" : ""}`}
               >
@@ -187,7 +187,7 @@ function Summary({ state, bonus, celebrate }: { state: DailyState; bonus: number
           </p>
           {bonus > 0 && (
             <motion.p
-              className="font-display mt-2 text-xl font-black text-gold uppercase"
+              className="font-display mt-2 text-xl font-black text-gold-ink uppercase"
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1.2, 1] }}
               transition={{ delay: 0.4 }}

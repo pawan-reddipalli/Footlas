@@ -152,7 +152,7 @@ export function WorldMap({
   const highlightFill = (id: string) => {
     if (id === highlight.correct) return "var(--pitch)";
     if (id === highlight.wrong) return "var(--danger)";
-    if (id === highlight.selected) return "var(--pick)";
+    if (id === highlight.selected) return "var(--map-pick)";
     return undefined;
   };
 

@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 /**
  * The flat football used as the logo, the loading state and the fallback when WebGL is
  * unavailable. Drawn from the same panel layout as the 3D ball: a centre pentagon, five
@@ -34,7 +36,7 @@ export function FootballMark({
   title?: string;
   filledColor?: string;
 }) {
-  const id = "fm-clip";
+  const id = `fm-clip-${useId().replace(/:/g, "")}`;
   return (
     <svg
       viewBox="0 0 100 100"

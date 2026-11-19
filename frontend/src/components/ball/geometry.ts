@@ -39,7 +39,7 @@ export const PENTAGONS: Vec3[] = signs(1, PHI)
 
 export const HEXAGONS: Vec3[] = [
   ...[1, -1].flatMap((x) => [1, -1].flatMap((y) => [1, -1].map((z) => [x, y, z] as Vec3))),
-  ...signs(1 / PHI, PHI).flatMap(([b, c]) => cyclic(0, b, c)),
+  ...signs(PHI, 1 / PHI).flatMap(([b, c]) => cyclic(0, b, c)),
 ].map(normalize);
 
 /** Pentagons first, then hexagons: the order the shader's uniform arrays use. */

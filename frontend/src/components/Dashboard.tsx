@@ -103,9 +103,9 @@ export function Dashboard() {
           )}
         </div>
 
-        <div className="relative mx-auto w-full max-w-[420px]">
+        <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[420px]">
           <Football filled={filled} interactive className="aspect-square w-full cursor-grab active:cursor-grabbing" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-1 text-center text-xs text-muted">
+          <p className="-mt-2 text-center text-xs text-muted">
             {progress ? (
               <>
                 <span className="font-semibold text-foreground">{filled} of 20 panels</span>{" "}
@@ -114,7 +114,7 @@ export function Dashboard() {
             ) : (
               "Drag to spin, tap to kick."
             )}
-          </div>
+          </p>
         </div>
       </section>
 

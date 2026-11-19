@@ -152,6 +152,7 @@ function Ball({ filled, theme, compact, reducedMotion, interactive }: Football3D
     dragDelta: new THREE.Vector2(),
   });
   const { gl } = useThree();
+  const shadowUniforms = useMemo(() => ({ uOpacity: { value: 0.3 } }), []);
 
   const uniforms = useMemo(() => {
     const p = PALETTE[theme];
@@ -231,6 +232,7 @@ function Ball({ filled, theme, compact, reducedMotion, interactive }: Football3D
     let start: { x: number; y: number; t: number } | null = null;
     let last: { x: number; y: number } | null = null;
     const down = (e: PointerEvent) => {
+      if (e.button !== 0) return;
       start = { x: e.clientX, y: e.clientY, t: performance.now() };
       last = { x: e.clientX, y: e.clientY };
       motion.current.dragging = true;
@@ -251,12 +253,18 @@ function Ball({ filled, theme, compact, reducedMotion, interactive }: Football3D
     el.addEventListener("pointerdown", down);
     el.addEventListener("pointermove", move);
     el.addEventListener("pointerup", up);
-    el.addEventListener("pointercancel", up);
+    // A cancel means the browser took over (usually a scroll): never count it as a kick.
+    const cancel = () => {
+      start = null;
+      last = null;
+      motion.current.dragging = false;
+    };
+    el.addEventListener("pointercancel", cancel);
     return () => {
       el.removeEventListener("pointerdown", down);
       el.removeEventListener("pointermove", move);
       el.removeEventListener("pointerup", up);
-      el.removeEventListener("pointercancel", up);
+      el.removeEventListener("pointercancel", cancel);
     };
   }, [gl, interactive]);
 
@@ -331,7 +339,7 @@ function Ball({ filled, theme, compact, reducedMotion, interactive }: Football3D
         <shaderMaterial
           transparent
           depthWrite={false}
-          uniforms={{ uOpacity: { value: 0.3 } }}
+          uniforms={shadowUniforms}
           vertexShader={shadowVertex}
           fragmentShader={shadowFragment}
         />
