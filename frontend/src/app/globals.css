@@ -1,37 +1,59 @@
 @import "tailwindcss";
 
+/*
+ * Two moods, one football.
+ * Light is "Matchday": programme paper, ink, pitch green, a programme-red accent.
+ * Dark is "Floodlit": a night pitch with mown stripes, chalk lines, highlighter yellow.
+ * next-themes writes data-theme on <html>; every colour below is a token, never a literal.
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
-  --background: #f6f8f5;
-  --surface: #ffffff;
-  --surface-muted: #eef2ec;
-  --foreground: #14201a;
-  --muted: #5b6b62;
-  --border: #dbe3dc;
-  --pitch: #1f9d55;
-  --pitch-strong: #157a41;
-  --gold: #e8a317;
-  --danger: #d64545;
-  --land: #cfd8d2;
-  --land-hover: #b4c3b9;
-  --sea: #e3eef5;
+  --background: #f3ede1;
+  --surface: #fbf8f1;
+  --surface-muted: #e9e1d1;
+  --foreground: #17150f;
+  --muted: #6a6253;
+  --border: #d6cbb6;
+  --pitch: #1f6b3a;
+  --pitch-strong: #17542d;
+  --on-pitch: #fbf8f1;
+  --gold: #c98a12;
+  --gold-soft: #f2d48a;
+  --danger: #c43b22;
+  --pick: #e8b23a;
+  --land: #dcd1bb;
+  --land-hover: #cbbd9f;
+  --sea: #e7dfcf;
+  --halftone: rgb(23 21 15 / 0.07);
+  --stripe: rgb(31 107 58 / 0.035);
+  --shadow: 23 21 15;
+  --ball-rim: #fff3d6;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d1411;
-    --surface: #151f1a;
-    --surface-muted: #1c2822;
-    --foreground: #e8efe9;
-    --muted: #93a39a;
-    --border: #2a3832;
-    --pitch: #2fbf6b;
-    --pitch-strong: #4fd486;
-    --gold: #f2b733;
-    --danger: #ef6464;
-    --land: #33433b;
-    --land-hover: #46594f;
-    --sea: #111b17;
-  }
+[data-theme="dark"] {
+  --background: #0a1811;
+  --surface: #0f2318;
+  --surface-muted: #16301f;
+  --foreground: #eef1e6;
+  --muted: #94a996;
+  --border: #23452f;
+  --pitch: #3bc46f;
+  --pitch-strong: #6be095;
+  --on-pitch: #06130b;
+  --gold: #f5c542;
+  --gold-soft: #5a4a1a;
+  --danger: #ff6b4a;
+  --pick: #f2e64a;
+  --land: #1d3a28;
+  --land-hover: #2a4f37;
+  --sea: #0c1d14;
+  --halftone: rgb(238 241 230 / 0.06);
+  --stripe: rgb(238 241 230 / 0.025);
+  --shadow: 0 0 0;
+  --ball-rim: #cfe9ff;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -43,13 +65,63 @@
   --color-border: var(--border);
   --color-pitch: var(--pitch);
   --color-pitch-strong: var(--pitch-strong);
+  --color-on-pitch: var(--on-pitch);
   --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
   --color-danger: var(--danger);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-pick: var(--pick);
+  --font-sans: var(--ff-body);
+  --font-display: var(--ff-display);
+  --font-score: var(--ff-score);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  /* Mown-pitch bands: barely there on paper, a real pitch under floodlights. */
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0 72px,
+    var(--stripe) 72px 144px
+  );
   color: var(--foreground);
+  transition:
+    background-color 400ms ease,
+    color 400ms ease;
+}
+
+/* Halftone dots, borrowed from old matchday programmes. */
+.halftone {
+  background-image: radial-gradient(var(--halftone) 1px, transparent 1.4px);
+  background-size: 7px 7px;
+}
+
+/* A sticker: thick paper border and a lifted shadow. */
+.sticker {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 0 0 4px var(--surface),
+    0 0 0 5px var(--border),
+    0 10px 24px -14px rgb(var(--shadow) / 0.45);
+}
+
+/* Ticket stub perforation along the top edge. */
+.perforated {
+  -webkit-mask: radial-gradient(circle 6px at 50% 0, transparent 98%, #000) 0 0 / 18px 100%;
+  mask: radial-gradient(circle 6px at 50% 0, transparent 98%, #000) 0 0 / 18px 100%;
+}
+
+.font-display {
+  font-optical-sizing: auto;
+  letter-spacing: -0.005em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
 }

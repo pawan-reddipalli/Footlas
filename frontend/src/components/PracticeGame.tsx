@@ -1,11 +1,13 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useState } from "react";
 
 import { useApi, useApiData } from "@/lib/api";
 import { SignInPrompt, useAuthState } from "@/lib/auth";
-import type { AnswerResult, Mode, Question, UnlockedAchievement } from "@/lib/types";
+import type { AnswerResult, Mode, Profile, Progress, Question, UnlockedAchievement } from "@/lib/types";
 
+import { GameHud, Scoreboard } from "./GameHud";
 import { UnlockedToast, XpBar } from "./ProgressBits";
 import { QuestionView } from "./QuestionView";
 
@@ -24,6 +26,9 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
   const [error, setError] = useState<string | null>(null);
   const [score, setScore] = useState({ answered: 0, correct: 0, xp: 0 });
   const [unlocked, setUnlocked] = useState<UnlockedAchievement[]>([]);
+  const { data: profile } = useApiData<Profile>("/api/me");
+  const [latest, setLatest] = useState<Progress | null>(null);
+  const progress = latest ?? profile?.progress;
 
   const next = () => {
     setResult(null);
@@ -42,6 +47,7 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
       });
       setResult({ ...r, given });
       setUnlocked(r.unlocked ?? []);
+      if (r.progress) setLatest(r.progress);
       setScore((s) => ({
         answered: s.answered + 1,
         correct: s.correct + Number(r.correct),
@@ -58,14 +64,14 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-sm font-semibold tracking-wide text-muted uppercase">{title}</h1>
-        <p className="text-sm text-muted">
-          This session: {score.correct}/{score.answered} correct · +{score.xp} XP
-        </p>
-      </div>
+      <GameHud
+        title={title}
+        progress={progress}
+        subtitle={<>Practice round · +{score.xp} XP this session</>}
+        right={<Scoreboard label="correct" value={`${score.correct}/${score.answered}`} />}
+      />
       {(error || loadError) && <ErrorNote message={error ?? loadError.message} />}
-      {!question && !loadError && <p className="text-muted">Loading question…</p>}
+      {!question && !loadError && <p className="text-muted">Setting up the next question…</p>}
       {question && (
         <QuestionView
           key={question.id}
@@ -79,17 +85,41 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
       {result && (
         <>
           {result.progress && <XpBar progress={result.progress} />}
-          <button
-            type="button"
-            onClick={next}
-            disabled={pending || isValidating}
-            className="self-start rounded-full bg-pitch px-6 py-2.5 font-semibold text-white hover:bg-pitch-strong disabled:opacity-40"
-          >
-            Next question →
-          </button>
+          <NextButton onClick={next} disabled={pending || isValidating}>
+            Next question
+          </NextButton>
         </>
       )}
     </div>
+  );
+}
+
+export function NextButton({
+  onClick,
+  disabled,
+  children,
+}: {
+  onClick: () => void;
+  disabled?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
+      whileHover={{ x: 4 }}
+      whileTap={{ scale: 0.95 }}
+      className="font-display group flex items-center gap-2 self-start rounded-full bg-foreground px-7 py-3 text-xl font-black text-background uppercase disabled:opacity-40"
+    >
+      {children}
+      <svg viewBox="0 0 24 24" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </motion.button>
   );
 }
 

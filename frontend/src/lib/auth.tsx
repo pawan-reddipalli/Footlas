@@ -106,7 +106,7 @@ export function AccountControls({ showSignUp = false }: { showSignUp?: boolean }
         </SignUpButton>
       )}
       <SignInButton>
-        <button className="rounded-full bg-pitch px-4 py-1.5 text-sm font-semibold text-white hover:bg-pitch-strong">
+        <button className="rounded-full bg-pitch px-4 py-1.5 text-sm font-semibold text-on-pitch hover:bg-pitch-strong">
           Sign in
         </button>
       </SignInButton>
@@ -116,8 +116,8 @@ export function AccountControls({ showSignUp = false }: { showSignUp?: boolean }
 
 export function SignInPrompt({ message }: { message: string }) {
   return (
-    <div className="mx-auto flex max-w-md flex-col items-center gap-4 rounded-2xl border border-border bg-surface p-8 text-center">
-      <p className="text-lg font-semibold">{message}</p>
+    <div className="sticker halftone mx-auto flex max-w-md flex-col items-center gap-4 rounded-2xl p-8 text-center">
+      <p className="font-display text-3xl leading-none font-black uppercase">{message}</p>
       <p className="text-sm text-muted">
         Your XP, streak and achievements are saved to your account.
       </p>
