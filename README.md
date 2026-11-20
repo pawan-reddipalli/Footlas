@@ -46,6 +46,20 @@ keys in `frontend/.env.local`, and set `AUTH_MODE=clerk`, `CLERK_ISSUER` and
 
 ## Tests
 
+Run everything GitHub CI runs (backend lint, migrations and tests, then frontend lint,
+type-check and build) with one command. It needs Docker running for Postgres:
+
+```bash
+./scripts/ci-local.sh                 # both jobs; or add `backend` / `frontend`
+./scripts/ci-local.sh --install-hook  # also run it before every git push
+```
+
+The script recreates a throwaway `footlas_ci` database each run, so your dev data is safe.
+Skip the hook once with `git push --no-verify`. The steps mirror
+`.github/workflows/ci.yml`, so change both together.
+
+To run pieces by hand:
+
 ```bash
 cd backend && pytest          # needs the footlas_test database (docker compose creates it)
 cd frontend && npm run lint && npm run build
