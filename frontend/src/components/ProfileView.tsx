@@ -129,12 +129,14 @@ function UsernameEditor({ profile, onSaved }: { profile: Profile; onSaved: (p: P
 
   if (!editing) {
     return (
-      <div className="flex items-center gap-2">
-        <h1 className="font-display truncate text-4xl leading-none font-black uppercase">{profile.username}</h1>
+      <div className="flex min-w-0 items-center gap-2">
+        <h1 className="font-display min-w-0 truncate text-3xl leading-none font-black uppercase sm:text-4xl">
+          {profile.username}
+        </h1>
         <button
           type="button"
           onClick={() => setEditing(true)}
-          className="text-sm text-pitch-strong hover:underline"
+          className="shrink-0 text-sm text-pitch-strong hover:underline"
         >
           Edit
         </button>
@@ -159,7 +161,7 @@ function UsernameEditor({ profile, onSaved }: { profile: Profile; onSaved: (p: P
         value={value}
         onChange={(e) => setValue(e.target.value)}
         aria-label="Username"
-        className="rounded-lg border border-border bg-surface px-3 py-1.5"
+        className="min-w-0 rounded-lg border border-border bg-surface px-3 py-1.5"
         maxLength={32}
       />
       <button type="submit" className="rounded-full bg-pitch px-4 py-1.5 text-sm font-semibold text-on-pitch">
