@@ -37,6 +37,13 @@ export type UnlockedAchievement = {
   description: string;
 };
 
+/** One-off XP on top of an answer: a streak milestone, a perfect daily, a completed country. */
+export type Bonus = {
+  kind: "daily_complete" | "daily_perfect" | "streak_milestone" | "country_complete" | (string & {});
+  label: string;
+  xp: number;
+};
+
 export type AnswerResult = {
   correct: boolean;
   answer: RevealedAnswer;
@@ -45,6 +52,8 @@ export type AnswerResult = {
   given?: string;
   progress?: Progress;
   unlocked?: UnlockedAchievement[];
+  bonuses?: Bonus[];
+  bonus_xp?: number;
 };
 
 export type DailySummary = {

@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 
 import type { AnswerResult } from "@/lib/types";
 
+import { BonusList } from "./ProgressBits";
+
 const CORRECT_LINES = ["Back of the net!", "Top bins!", "Clinical finish!", "Right in the corner!"];
 const WRONG_LINES = ["Off the post", "Just wide", "Saved, but here's the story", "Not this time"];
 
@@ -18,7 +20,7 @@ function pick(lines: string[], seed: string) {
  * It deals in like a trading card, flipping over from its edge.
  */
 export function LearnCard({ result }: { result: AnswerResult }) {
-  const { correct, learn, xp_awarded } = result;
+  const { correct, learn, xp_awarded, bonuses } = result;
   const verdict = pick(correct ? CORRECT_LINES : WRONG_LINES, learn.title);
   return (
     <div style={{ perspective: 1200 }}>
@@ -47,6 +49,11 @@ export function LearnCard({ result }: { result: AnswerResult }) {
             </motion.span>
           )}
         </header>
+        {bonuses && bonuses.length > 0 && (
+          <div className="border-b border-border px-5 py-3">
+            <BonusList bonuses={bonuses} delay={0.8} />
+          </div>
+        )}
         <div className="halftone p-5">
           <p className="text-xs font-semibold text-muted">Learn Card</p>
           <h3 className="font-display mt-1 text-3xl leading-none font-black uppercase">{learn.title}</h3>

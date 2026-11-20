@@ -4,7 +4,7 @@ import { AnimatePresence, animate, motion, useMotionValue, useTransform } from "
 import { useEffect } from "react";
 
 import { play } from "@/lib/feedback";
-import type { Progress, UnlockedAchievement } from "@/lib/types";
+import type { Bonus, Progress, UnlockedAchievement } from "@/lib/types";
 
 import { HEX_COUNT } from "./ball/geometry";
 
@@ -134,6 +134,27 @@ export function StreakBadge({ streak }: { streak: number }) {
 }
 
 /** Enamel pin badges that spring in when an achievement unlocks. */
+/** Bonus XP from the server, one gold line each: what it was for and what it paid. */
+export function BonusList({ bonuses, delay = 0 }: { bonuses?: Bonus[]; delay?: number }) {
+  if (!bonuses?.length) return null;
+  return (
+    <ul className="flex flex-col gap-1.5" aria-label="Bonus XP">
+      {bonuses.map((b, i) => (
+        <motion.li
+          key={`${b.kind}-${b.label}`}
+          className="flex items-center justify-between gap-3 rounded-xl border border-gold/50 bg-gold-soft/40 px-3 py-2"
+          initial={{ opacity: 0, x: -12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: "spring", stiffness: 380, damping: 24, delay: delay + i * 0.12 }}
+        >
+          <span className="text-sm font-semibold">{b.label}</span>
+          <span className="font-score shrink-0 text-lg font-black text-gold-ink">+{b.xp} XP</span>
+        </motion.li>
+      ))}
+    </ul>
+  );
+}
+
 export function UnlockedToast({ achievements }: { achievements: UnlockedAchievement[] }) {
   const key = achievements.map((a) => a.slug).join(",");
   useEffect(() => {
