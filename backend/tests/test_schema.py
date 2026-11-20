@@ -32,8 +32,11 @@ def _model_checks() -> set[str]:
 
 def test_migration_creates_every_check_constraint_the_models_declare():
     # Alembic autogenerate (and `alembic check` in CI) cannot see CHECK constraints.
+    migrations = ["0002_harden_mvp_schema", "0003_champions_league_finals"]
     migrated = {
-        f"ck_{table}_{name}" for table, name, _ in _migration("0002_harden_mvp_schema").CHECKS
+        f"ck_{table}_{name}"
+        for migration in migrations
+        for table, name, _ in _migration(migration).CHECKS
     }
     assert migrated == _model_checks()
 

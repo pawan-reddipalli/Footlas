@@ -12,7 +12,14 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.db import SessionLocal
-from app.domains.football.models import CareerHistory, Club, Country, Player, WorldCup
+from app.domains.football.models import (
+    CareerHistory,
+    ChampionsLeagueFinal,
+    Club,
+    Country,
+    Player,
+    WorldCup,
+)
 from app.domains.gameplay.generator import generate_questions
 from app.domains.gameplay.models import QuizQuestion
 from app.domains.users.models import Achievement
@@ -62,6 +69,11 @@ def seed(db: Session) -> dict[str, int]:
     for wc in _load("world_cups"):
         winner = countries[wc.pop("winner")]
         _upsert(db, WorldCup, "year", {**wc, "winner_id": winner.id})
+
+    for final in _load("champions_league"):
+        winner, runner_up = clubs[final.pop("winner")], clubs[final.pop("runner_up")]
+        values = {**final, "winner_id": winner.id, "runner_up_id": runner_up.id}
+        _upsert(db, ChampionsLeagueFinal, "year", values)
 
     for order, a in enumerate(_load("achievements")):
         _upsert(db, Achievement, "slug", {**a, "sort_order": order})

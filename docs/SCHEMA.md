@@ -13,6 +13,8 @@ erDiagram
     countries ||--o{ clubs : "based in"
     countries ||--o{ players : "nationality"
     countries ||--o{ world_cups : "won"
+    clubs ||--o{ champions_league_finals : "won"
+    clubs ||--o{ champions_league_finals : "runner-up"
     clubs ||--o{ players : "current club"
     players ||--o{ career_history : "career"
     clubs ||--o{ career_history : "spells"
@@ -75,6 +77,7 @@ an impossible row. They are named `ck_<table>_<rule>`.
 | `clubs` | `founded` is empty or after 1800 |
 | `players` | `position` is GK, DF, MF or FW |
 | `career_history` | `end_year` is empty (still there) or not before `start_year` |
+| `champions_league_finals` | `year >= 1956` (the first final); `season` looks like `2004-05`; winner and runner-up are different clubs |
 | `quiz_questions` | `mode` is `map` or `player`; `difficulty` is 1 to 5 |
 | `daily_challenges` | `question_ids` is a JSON array |
 | `quiz_answers` | `xp_awarded >= 0`; one answer per user, daily challenge and question |
@@ -101,7 +104,8 @@ a migration that can't be undone fails the build.
 
 ## Not in the MVP yet
 
-From the Notion "Future Tables" list: managers, stadiums, competitions, referees,
+From the Notion "Future Tables" list: managers, stadiums, competitions (only Champions
+League finals so far, in `champions_league_finals`), referees,
 transfers, seasons, matches. They go in the football domain. `daily_challenges.question_ids`
 is a JSONB list for now; if daily challenges ever need per-question metadata, move it to a
 `daily_challenge_questions` join table.

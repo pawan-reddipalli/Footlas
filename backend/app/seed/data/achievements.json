@@ -90,6 +90,15 @@
     "threshold": 10
   },
   {
+    "slug": "champions-league-master",
+    "name": "Champions League Master",
+    "emoji": "🏆",
+    "description": "Answer 15 Champions League questions correctly.",
+    "metric": "correct",
+    "key": "competition:ucl",
+    "threshold": 15
+  },
+  {
     "slug": "daily-regular",
     "name": "Daily Regular",
     "emoji": "📅",
