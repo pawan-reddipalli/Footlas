@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "first-kick",
+    "name": "First Kick",
+    "emoji": "⚽",
+    "description": "Answer your first question correctly.",
+    "metric": "correct",
+    "key": "all",
+    "threshold": 1
+  },
+  {
+    "slug": "perfect-day",
+    "name": "Perfect Day",
+    "emoji": "💯",
+    "description": "Get all 10 daily challenge questions right.",
+    "metric": "correct",
+    "key": "daily:perfect",
+    "threshold": 1
+  },
+  {
+    "slug": "on-fire",
+    "name": "On Fire",
+    "emoji": "🔥",
+    "description": "Keep a 7-day daily challenge streak.",
+    "metric": "streak",
+    "key": "",
+    "threshold": 7
+  },
+  {
+    "slug": "streak-30",
+    "name": "30 Day Streak",
+    "emoji": "🔥",
+    "description": "Keep a 30-day daily challenge streak.",
+    "metric": "streak",
+    "key": "",
+    "threshold": 30
+  },
+  {
+    "slug": "scout",
+    "name": "Scout",
+    "emoji": "🕵️",
+    "description": "Identify 25 players in Who Am I?",
+    "metric": "correct",
+    "key": "mode:player",
+    "threshold": 25
+  },
+  {
+    "slug": "geography-expert",
+    "name": "Geography Expert",
+    "emoji": "🌍",
+    "description": "Answer 50 map questions correctly.",
+    "metric": "correct",
+    "key": "mode:map",
+    "threshold": 50
+  },
+  {
+    "slug": "goal-machine",
+    "name": "Goal Machine",
+    "emoji": "⚽",
+    "description": "Answer 100 questions correctly.",
+    "metric": "correct",
+    "key": "all",
+    "threshold": 100
+  },
+  {
+    "slug": "brazil-expert",
+    "name": "Brazil Expert",
+    "emoji": "🇧🇷",
+    "description": "Answer 10 questions about Brazil correctly.",
+    "metric": "correct",
+    "key": "country:BRA",
+    "threshold": 10
+  },
+  {
+    "slug": "three-lions",
+    "name": "Three Lions",
+    "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "description": "Answer 10 questions about England correctly.",
+    "metric": "correct",
+    "key": "country:ENG",
+    "threshold": 10
+  },
+  {
+    "slug": "albiceleste",
+    "name": "Albiceleste",
+    "emoji": "🇦🇷",
+    "description": "Answer 10 questions about Argentina correctly.",
+    "metric": "correct",
+    "key": "country:ARG",
+    "threshold": 10
+  },
+  {
+    "slug": "daily-regular",
+    "name": "Daily Regular",
+    "emoji": "📅",
+    "description": "Finish 10 daily challenges.",
+    "metric": "correct",
+    "key": "daily:completed",
+    "threshold": 10
+  }
+]

@@ -1,2 +1,11 @@
+.DS_Store
+.env
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
 # Claude Code personal settings
 .claude/settings.local.json
