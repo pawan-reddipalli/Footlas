@@ -22,8 +22,14 @@ class Settings(BaseSettings):
     def _check_auth(self) -> "Settings":
         if self.environment == "production" and self.auth_mode != "clerk":
             raise ValueError("AUTH_MODE=dev is not allowed in production")
-        if self.auth_mode == "clerk" and not (self.clerk_issuer and self.clerk_jwks_url):
-            raise ValueError("AUTH_MODE=clerk needs CLERK_ISSUER and CLERK_JWKS_URL")
+        # Clerk's `iss` claim has no trailing slash, and the check is an exact match.
+        self.clerk_issuer = self.clerk_issuer.strip().rstrip("/")
+        if self.auth_mode == "clerk":
+            if not self.clerk_issuer:
+                raise ValueError("AUTH_MODE=clerk needs CLERK_ISSUER (your Clerk Frontend API URL)")
+            if not self.clerk_jwks_url:
+                # Every Clerk instance publishes its keys at this path.
+                self.clerk_jwks_url = f"{self.clerk_issuer}/.well-known/jwks.json"
         return self
 
     @property

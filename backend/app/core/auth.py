@@ -32,7 +32,9 @@ def _jwks_client(url: str) -> jwt.PyJWKClient:
 
 
 def _unauthorized(detail: str) -> HTTPException:
-    return HTTPException(status.HTTP_401_UNAUTHORIZED, detail=detail)
+    return HTTPException(
+        status.HTTP_401_UNAUTHORIZED, detail=detail, headers={"WWW-Authenticate": "Bearer"}
+    )
 
 
 def verify_clerk_token(token: str, settings: Settings) -> Identity:
@@ -46,6 +48,11 @@ def verify_clerk_token(token: str, settings: Settings) -> Identity:
             options={"require": ["exp", "sub", "iss"]},
             leeway=5,
         )
+    except jwt.PyJWKClientConnectionError as exc:
+        # Clerk's key endpoint is unreachable: our problem, not a bad token.
+        raise HTTPException(
+            status.HTTP_503_SERVICE_UNAVAILABLE, detail="Can't reach Clerk to verify sign-in"
+        ) from exc
     except jwt.PyJWTError as exc:
         raise _unauthorized("Invalid session token") from exc
 
@@ -72,9 +79,10 @@ def get_identity(
         name = x_dev_user.strip()[:32]
         return Identity(auth_id=f"dev:{name}", username_hint=name)
 
-    if not authorization or not authorization.lower().startswith("bearer "):
+    scheme, _, token = (authorization or "").partition(" ")
+    if scheme.lower() != "bearer" or not token.strip():
         raise _unauthorized("Missing bearer token")
-    return verify_clerk_token(authorization.split(" ", 1)[1], settings)
+    return verify_clerk_token(token.strip(), settings)
 
 
 def get_current_user(
@@ -84,5 +92,6 @@ def get_current_user(
     return get_or_create_user(db, identity.auth_id, identity.username_hint, identity.avatar_url)
 
 
+CurrentIdentity = Annotated[Identity, Depends(get_identity)]
 CurrentUser = Annotated[User, Depends(get_current_user)]
 DB = Annotated[Session, Depends(get_db)]

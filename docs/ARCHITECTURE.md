@@ -87,6 +87,25 @@ Days are UTC for now. Per-user time zones are a likely follow-up.
 - **Local:** without Clerk keys, the web app runs in guest mode and sends `X-Dev-User`.
   The API accepts that only with `AUTH_MODE=dev`, and refuses to start in production in
   dev mode.
+- **Pages:** `/sign-in` and `/sign-up` host Clerk's forms. With Clerk on, the proxy
+  (`frontend/src/proxy.ts`) sends signed-out visitors from `/play/*` and `/profile` to
+  `/sign-in` and back afterwards. The home page stays public. The list lives in
+  `frontend/src/lib/clerk-routes.ts`.
+- **Checking a setup:** `GET /api/auth/session` is the smallest protected endpoint. It
+  returns `auth_mode`, the Clerk user id (`auth_id`) and the Footlas user id, or 401.
+
+### Turning on Clerk
+
+1. Create an application at [dashboard.clerk.com](https://dashboard.clerk.com) and pick
+   the sign-in methods (email and Google are a good start).
+2. From **Configure > API keys**, copy the publishable and secret keys into
+   `frontend/.env.local` as `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY`.
+3. In `backend/.env`, set `AUTH_MODE=clerk` and `CLERK_ISSUER` to the Frontend API URL
+   from the same page (like `https://your-app.clerk.accounts.dev`). `CLERK_JWKS_URL`
+   defaults to `$CLERK_ISSUER/.well-known/jwks.json`. In production also set
+   `CLERK_AUTHORIZED_PARTIES` to the web app's origin, such as `https://footlas.app`.
+4. Restart both apps, sign up, and open `/api/auth/session` with the session token to
+   confirm the API sees you.
 
 ## Monetization, later
 
