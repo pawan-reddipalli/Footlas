@@ -68,17 +68,22 @@ def test_perfect_daily_challenge(client, db):
     modes = [item["question"]["mode"] for item in daily["items"]]
     assert modes.count("map") == 6 and modes.count("player") == 4
 
+    total_bonus = 0
     for item in daily["items"]:
         qid = item["question"]["id"]
         result = client.post(
             "/api/daily/answer", json={"question_id": qid, "answer": _correct_answer(db, qid)}
         ).json()
         assert result["correct"]
+        total_bonus += result["summary"]["bonus_xp"]
 
     summary = result["summary"]
     assert summary["complete"] and summary["perfect"]
-    assert summary["bonus_xp"] == service.DAILY_COMPLETE_BONUS + service.DAILY_PERFECT_BONUS
-    assert result["progress"]["xp"] == 10 * service.DAILY_XP + summary["bonus_xp"]
+    kinds = {b["kind"]: b["xp"] for b in result["bonuses"]}
+    assert kinds["daily_complete"] == service.DAILY_COMPLETE_BONUS
+    assert kinds["daily_perfect"] == service.DAILY_PERFECT_BONUS
+    assert summary["bonus_xp"] == sum(b["xp"] for b in result["bonuses"])
+    assert result["progress"]["xp"] == 10 * service.DAILY_XP + total_bonus
     assert result["progress"]["streak"] == 1
     assert "perfect-day" in [a["slug"] for a in result["unlocked"]]
 
