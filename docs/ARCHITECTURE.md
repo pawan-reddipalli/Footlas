@@ -33,7 +33,8 @@ an `ai/` domain and Phase 4 a `social/` domain without touching the others.
 
 ## Tables (MVP)
 
-The Notion MVP table list maps onto these tables:
+The Notion MVP table list maps onto these tables. [SCHEMA.md](SCHEMA.md) has the diagram,
+the rules the database enforces, and how to change the schema.
 
 | Notion name     | Table                          | Notes                                                       |
 | --------------- | ------------------------------ | ----------------------------------------------------------- |

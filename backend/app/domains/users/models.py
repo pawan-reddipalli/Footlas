@@ -2,7 +2,16 @@
 
 from datetime import date, datetime
 
-from sqlalchemy import Date, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import (
+    CheckConstraint,
+    Date,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.db import Base, TimestampMixin, utcnow
@@ -10,6 +19,7 @@ from app.core.db import Base, TimestampMixin, utcnow
 
 class User(TimestampMixin, Base):
     __tablename__ = "users"
+    __table_args__ = (CheckConstraint("plan IN ('free', 'supporter', 'pro')", name="plan"),)
 
     id: Mapped[int] = mapped_column(primary_key=True)
     # Subject from the auth provider: a Clerk user id, or "dev:<name>" in local dev mode.
@@ -27,6 +37,11 @@ class User(TimestampMixin, Base):
 
 class UserProgress(Base):
     __tablename__ = "user_progress"
+    __table_args__ = (
+        CheckConstraint("xp >= 0", name="xp_non_negative"),
+        CheckConstraint("current_streak >= 0", name="current_streak_non_negative"),
+        CheckConstraint("longest_streak >= current_streak", name="longest_streak_covers_current"),
+    )
 
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), primary_key=True
@@ -44,7 +59,10 @@ class UserStatistic(Base):
     """A counter per user and key, e.g. "all", "mode:map" or "country:BRA"."""
 
     __tablename__ = "user_statistics"
-    __table_args__ = (UniqueConstraint("user_id", "key"),)
+    __table_args__ = (
+        UniqueConstraint("user_id", "key"),
+        CheckConstraint("correct >= 0 AND correct <= answered", name="correct_within_answered"),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
@@ -61,6 +79,10 @@ class Achievement(Base):
     """
 
     __tablename__ = "achievements"
+    __table_args__ = (
+        CheckConstraint("metric IN ('correct', 'streak')", name="metric"),
+        CheckConstraint("threshold > 0", name="threshold_positive"),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     slug: Mapped[str] = mapped_column(String(64), unique=True)
@@ -79,7 +101,7 @@ class UserAchievement(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
-    achievement_id: Mapped[int] = mapped_column(ForeignKey("achievements.id"))
+    achievement_id: Mapped[int] = mapped_column(ForeignKey("achievements.id"), index=True)
     unlocked_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
     achievement: Mapped[Achievement] = relationship()
