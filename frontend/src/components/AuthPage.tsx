@@ -25,11 +25,11 @@ export function AuthPage({ kind }: { kind: "sign-in" | "sign-up" }) {
   return (
     <div className="flex flex-col items-center gap-6 text-center">
       <div className="max-w-md">
-        <h1 className="text-2xl font-black tracking-tight">{copy.title}</h1>
+        <h1 className="font-display text-5xl leading-none font-black uppercase">{copy.title}</h1>
         <p className="mt-2 text-sm text-muted">{copy.blurb}</p>
       </div>
       {mode === "guest" ? (
-        <div className="max-w-md rounded-2xl border border-border bg-surface p-6 text-sm text-muted">
+        <div className="sticker max-w-md rounded-2xl p-6 text-sm text-muted">
           <p>
             Accounts aren&apos;t switched on in this copy of Footlas, so you&apos;re playing in
             guest mode and your progress is saved for this browser.
