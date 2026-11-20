@@ -73,11 +73,19 @@ map, so a click on the UK is right for all four; the Learn Card explains why.
 | Practice correct answer  | +5 XP, once per question per day (no farming by repeating)    |
 | Daily correct answer     | +10 XP                                                        |
 | Daily completion bonus   | +20 XP, plus +50 XP for a perfect 10/10                       |
+| Streak milestone bonus   | +25 XP at 3 days, +50 at 7, +100 at 14, +200 at 30 and every 30 after (60, 90…). Paid when the daily that reaches it is finished, and only the first time (a new longest streak), so rebuilding a lost streak can't earn it twice |
+| Country complete bonus   | +40 XP the first time every active question about a country (topic `country:BRA`) has been answered right at least once, in practice or the daily. Countries need at least 3 questions to count. Once per user per country, stored as the `user_statistics` row `bonus:category:BRA` |
 | Levels                   | Level n needs 100 × n more XP than the last (100, 200, 300…) |
 | Streak                   | +1 for each consecutive UTC day the daily challenge is finished |
 | Daily challenge          | 6 map + 4 "Who Am I?" questions, one attempt each              |
 
 Days are UTC for now. Per-user time zones are a likely follow-up.
+
+Bonuses live in `gameplay/bonuses.py`. Practice and daily answers return them as
+`bonuses: [{kind, label, xp}]` (kinds: `daily_complete`, `daily_perfect`,
+`streak_milestone`, `country_complete`) so the web app can show each one; the daily
+answer's `summary.bonus_xp` is their total. `xp_awarded` stays the XP for the answer
+alone.
 
 ## Auth
 

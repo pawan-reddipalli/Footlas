@@ -51,7 +51,7 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
       setScore((s) => ({
         answered: s.answered + 1,
         correct: s.correct + Number(r.correct),
-        xp: s.xp + r.xp_awarded,
+        xp: s.xp + r.xp_awarded + (r.bonus_xp ?? 0),
       }));
     } catch (e) {
       setError((e as Error).message);

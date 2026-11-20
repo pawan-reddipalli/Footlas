@@ -8,11 +8,11 @@ import { useApi, useApiData } from "@/lib/api";
 import { SignInPrompt, useAuthState } from "@/lib/auth";
 import { confettiBurst } from "@/lib/celebrate";
 import { play } from "@/lib/feedback";
-import type { DailyAnswerResult, DailyState, UnlockedAchievement } from "@/lib/types";
+import type { Bonus, DailyAnswerResult, DailyState, UnlockedAchievement } from "@/lib/types";
 
 import { GameHud, Scoreboard } from "./GameHud";
 import { ErrorNote, NextButton } from "./PracticeGame";
-import { StreakBadge, UnlockedToast, XpBar } from "./ProgressBits";
+import { BonusList, StreakBadge, UnlockedToast, XpBar } from "./ProgressBits";
 import { QuestionView } from "./QuestionView";
 
 /** Ten questions a day, one attempt each. Finishing keeps the streak alive. */
@@ -24,7 +24,8 @@ export function DailyGame() {
   const [pending, setPending] = useState(false);
   const [answerError, setAnswerError] = useState<string | null>(null);
   const [unlocked, setUnlocked] = useState<UnlockedAchievement[]>([]);
-  const [bonus, setBonus] = useState(0);
+  // Bonuses earned with the final answer (completion, perfect, streak), for the report.
+  const [bonuses, setBonuses] = useState<Bonus[]>([]);
   const [finishedNow, setFinishedNow] = useState(false);
 
   if (ready && !signedIn) return <SignInPrompt message="Sign in to play today's challenge" />;
@@ -44,8 +45,10 @@ export function DailyGame() {
         answer: given,
       });
       setUnlocked(r.unlocked ?? []);
-      if (r.summary.bonus_xp) setBonus(r.summary.bonus_xp);
-      if (r.summary.complete) setFinishedNow(true);
+      if (r.summary.complete) {
+        setFinishedNow(true);
+        setBonuses(r.bonuses ?? []);
+      }
       await mutate(
         {
           ...data,
@@ -125,7 +128,7 @@ export function DailyGame() {
       {answerError && <ErrorNote message={answerError} />}
 
       {showSummary ? (
-        <Summary state={data} bonus={bonus} celebrate={finishedNow} />
+        <Summary state={data} bonuses={bonuses} celebrate={finishedNow} />
       ) : (
         <>
           {halfTime && (
@@ -161,7 +164,15 @@ export function DailyGame() {
   );
 }
 
-function Summary({ state, bonus, celebrate }: { state: DailyState; bonus: number; celebrate: boolean }) {
+function Summary({
+  state,
+  bonuses,
+  celebrate,
+}: {
+  state: DailyState;
+  bonuses: Bonus[];
+  celebrate: boolean;
+}) {
   const { summary, progress } = state;
   useEffect(() => {
     if (celebrate && summary.perfect) void confettiBurst("perfect");
@@ -185,15 +196,10 @@ function Summary({ state, bonus, celebrate }: { state: DailyState; bonus: number
               ? "A perfect match. Every answer right!"
               : "Match over. Come back tomorrow to add a stripe to your scarf."}
           </p>
-          {bonus > 0 && (
-            <motion.p
-              className="font-display mt-2 text-xl font-black text-gold-ink uppercase"
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1.2, 1] }}
-              transition={{ delay: 0.4 }}
-            >
-              +{bonus} XP completion bonus
-            </motion.p>
+          {bonuses.length > 0 && (
+            <div className="mt-3">
+              <BonusList bonuses={bonuses} delay={0.4} />
+            </div>
           )}
         </div>
         <StreakBadge streak={progress.streak} />

@@ -11,14 +11,17 @@ from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.domains.gameplay import bonuses as bonus_rules
+from app.domains.gameplay.bonuses import (  # noqa: F401  (re-exported for callers)
+    DAILY_COMPLETE_BONUS,
+    DAILY_PERFECT_BONUS,
+)
 from app.domains.gameplay.models import DailyChallenge, QuizAnswer, QuizQuestion
 from app.domains.users import service as users
 from app.domains.users.models import Achievement, User
 
 PRACTICE_XP = 5
 DAILY_XP = 10
-DAILY_COMPLETE_BONUS = 20
-DAILY_PERFECT_BONUS = 50
 DAILY_MIX = {"map": 6, "player": 4}
 RECENT_WINDOW = 20
 
@@ -115,6 +118,12 @@ def _result(question: QuizQuestion, correct: bool, xp: int) -> dict:
     }
 
 
+def _apply_bonuses(user: User, bonuses: list[dict]) -> int:
+    total = sum(b["xp"] for b in bonuses)
+    user.progress.xp += total
+    return total
+
+
 # Practice ------------------------------------------------------------------
 
 
@@ -148,10 +157,14 @@ def answer_practice(db: Session, user: User, question_id: int, given: str) -> di
     )
     xp = 0 if already_earned else PRACTICE_XP
     correct = _record(db, user, question, given, xp)
+    bonuses = bonus_rules.country_bonuses(db, user, question) if correct else []
+    bonus_xp = _apply_bonuses(user, bonuses)
     unlocked = users.check_achievements(db, user)
     db.commit()
     return {
         **_result(question, correct, xp if correct else 0),
+        "bonuses": bonuses,
+        "bonus_xp": bonus_xp,
         "progress": progress_summary(user),
         "unlocked": [_achievement_view(a) for a in unlocked],
     }
@@ -258,18 +271,24 @@ def answer_daily(db: Session, user: User, day: date, question_id: int, given: st
 
     answers = _daily_answers(db, user, challenge)
     summary = _daily_summary(challenge, answers)
-    bonus = 0
+    bonuses = bonus_rules.country_bonuses(db, user, question) if correct else []
     if summary["complete"]:
-        bonus = DAILY_COMPLETE_BONUS + (DAILY_PERFECT_BONUS if summary["perfect"] else 0)
-        user.progress.xp += bonus
-        users.update_streak(user.progress, day)
+        bonuses += bonus_rules.daily_completion_bonuses(summary["perfect"])
+        previous_best = user.progress.longest_streak
+        if users.update_streak(user.progress, day):
+            milestone = bonus_rules.streak_bonus(user.progress.current_streak, previous_best)
+            if milestone:
+                bonuses.append(milestone)
         keys = ["daily:completed"] + (["daily:perfect"] if summary["perfect"] else [])
         users.record_answer_stats(db, user, keys, True)
+    bonus_xp = _apply_bonuses(user, bonuses)
     unlocked = users.check_achievements(db, user)
     db.commit()
     return {
         **_result(question, correct, DAILY_XP if correct else 0),
-        "summary": {**summary, "bonus_xp": bonus},
+        "bonuses": bonuses,
+        # bonus_xp is every bonus earned with this answer (completion, perfect, streak, country).
+        "summary": {**summary, "bonus_xp": bonus_xp},
         "progress": progress_summary(user, day),
         "unlocked": [_achievement_view(a) for a in unlocked],
     }
