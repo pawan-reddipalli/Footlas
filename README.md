@@ -64,3 +64,34 @@ To run pieces by hand:
 cd backend && pytest          # needs the footlas_test database (docker compose creates it)
 cd frontend && npm run lint && npm run build
 ```
+
+### Feature tests (on demand)
+
+A second, larger suite checks that every MVP feature still works end to end. Run it
+before merging a big change:
+
+```bash
+./scripts/feature-tests.sh            # both; or `backend` / `frontend`
+./scripts/feature-tests.sh --dev      # e2e against `next dev` instead of a production build
+```
+
+| Part | Where | What it checks |
+| ---- | ----- | -------------- |
+| API (pytest, ~70 cases, ~15s) | `backend/feature_tests/` | Map game (question shape, right/wrong, UK home nations), Who Am I?, daily challenge (6 map + 4 player, one attempt each, bonuses, same set for everyone), XP and level boundaries, streaks over several days, every achievement in `achievements.json`, profiles and renaming, Learn Cards on every question |
+| Browser (Playwright, 7 tests) | `frontend/e2e/` | In guest mode: home dashboard (ball, XP, streak), map game, Who Am I?, daily challenge clock, profile stats and pins, theme toggle |
+
+The script recreates a throwaway `footlas_feature` database (or wipes the public schema of
+your `DATABASE_URL`), starts the API on port 8100 and the web app on 3100 (change them with
+`API_PORT` / `WEB_PORT`), runs the tests and stops both servers. The first browser run on a
+new machine needs `cd frontend && npx playwright install chromium`.
+
+These tests are **deliberately not in CI**, `ci-local.sh` or the pre-push hook. Plain
+`pytest` only collects `backend/tests/`. To turn them on later, add one step to the end of
+`run_backend` in `scripts/ci-local.sh` (and the same step to `.github/workflows/ci.yml`):
+
+```bash
+pytest feature_tests -q
+```
+
+The browser tests need running servers, so they are best kept as a manual
+`./scripts/feature-tests.sh frontend` before releases.

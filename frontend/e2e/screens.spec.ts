@@ -9,7 +9,7 @@ test("home dashboard shows the ball, XP and streak", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Welcome to the squad");
   await expect(page.getByTestId("football").first()).toBeVisible();
   await expect(page.getByRole("progressbar", { name: "Level 1 progress" })).toBeVisible();
-  await expect(page.getByTitle("Daily challenge streak")).toContainText("0");
+  await expect(page.getByTitle("Daily challenge streak", { exact: true })).toContainText(/^0\s*days$/);
   await expect(page.getByText("Kick-off: 10 questions")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Pin collection" })).toBeVisible();
   await expect(page.getByText("Guest mode")).toBeVisible();
