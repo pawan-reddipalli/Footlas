@@ -63,7 +63,7 @@ export function Football({
   const canRender = useSyncExternalStore(noop, hasWebGL, () => false);
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="football">
       {canRender ? (
         <WebGLBoundary>
           <Football3D

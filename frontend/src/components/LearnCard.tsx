@@ -23,6 +23,7 @@ export function LearnCard({ result }: { result: AnswerResult }) {
   return (
     <div style={{ perspective: 1200 }}>
       <motion.article
+        data-testid="learn-card"
         className="sticker relative overflow-hidden rounded-2xl"
         initial={{ rotateY: -95, opacity: 0, y: 20 }}
         animate={{ rotateY: 0, opacity: 1, y: 0 }}

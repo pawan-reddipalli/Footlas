@@ -190,6 +190,7 @@ export function WorldMap({
         {countries.map((c) => (
           <path
             key={c.id}
+            data-map-id={c.id}
             d={c.d}
             fill="var(--land)"
             stroke="var(--sea)"
