@@ -83,6 +83,8 @@ export function ProfileView() {
           {profile.achievements.map((a, i) => (
             <motion.li
               key={a.slug}
+              data-testid="pin"
+              data-unlocked={a.unlocked_at ? "true" : "false"}
               className={`flex items-center gap-4 rounded-2xl p-4 ${
                 a.unlocked_at ? "sticker" : "border border-dashed border-border"
               }`}

@@ -109,7 +109,9 @@ export function GameHud({
 export function Scoreboard({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="flex flex-col items-end leading-none">
-      <span className="font-score text-2xl font-black text-pitch-strong sm:text-3xl">{value}</span>
+      <span data-testid="scoreboard" className="font-score text-2xl font-black text-pitch-strong sm:text-3xl">
+        {value}
+      </span>
       <span className="mt-1 text-[11px] font-semibold text-muted">{label}</span>
     </div>
   );

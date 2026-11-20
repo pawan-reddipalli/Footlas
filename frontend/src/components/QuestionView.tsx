@@ -140,6 +140,7 @@ function ChoiceQuestion({ question, result, pending, onAnswer }: Props) {
             <motion.button
               key={option.id}
               type="button"
+              data-testid="answer-option"
               disabled={answered || pending}
               onClick={() => {
                 setChosen(option.id);
