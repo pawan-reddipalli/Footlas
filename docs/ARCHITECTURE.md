@@ -22,7 +22,8 @@ its own `models.py`, `service.py` (the rules) and `router.py` (HTTP).
 backend/app/
   core/            config, database, auth, entitlements
   domains/
-    football/      Country, Club, Player, CareerHistory, WorldCup   (the knowledge graph)
+    football/      Country, Club, Player, CareerHistory, WorldCup,
+                   ChampionsLeagueFinal                            (the knowledge graph)
     gameplay/      QuizQuestion, DailyChallenge, QuizAnswer + question generator
     users/         User, UserProgress, UserStatistic, Achievement, UserAchievement
   seed/            JSON content + loader (python -m app.seed)
@@ -40,7 +41,7 @@ the rules the database enforces, and how to change the schema.
 | --------------- | ------------------------------ | ----------------------------------------------------------- |
 | Users           | `users`                        | `auth_id` is the Clerk user id; `plan` is for monetization  |
 | UserProgress    | `user_progress`                | XP, current and longest streak, last daily date             |
-| UserStatistics  | `user_statistics`              | Answered/correct counters per key (`all`, `mode:map`, `country:BRA`) |
+| UserStatistics  | `user_statistics`              | Answered/correct counters per key (`all`, `mode:map`, `country:BRA`, `competition:ucl`) |
 | Countries       | `countries`                    | Football nations; `map_id` links to the map shape           |
 | Players         | `players`                      |                                                             |
 | Clubs           | `clubs`                        |                                                             |
@@ -49,12 +50,14 @@ the rules the database enforces, and how to change the schema.
 | Achievements    | `achievements`, `user_achievements` | Each achievement is "metric ≥ threshold"               |
 | DailyChallenges | `daily_challenges`, `quiz_answers` | Same 10 questions for everyone each UTC day             |
 | (new)           | `world_cups`                   | Powers "Which country won the YYYY World Cup?"              |
+| (new)           | `champions_league_finals`      | Powers "Which country's club won the YYYY Champions League final?" |
 
 ## How a question works
 
 1. The seed script loads the JSON content and runs `gameplay/generator.py`, which turns
    facts into questions: find a country, where is this player from, which country is
-   this club from, who won this World Cup, and "Who am I?" from a player's career.
+   this club from, who won this World Cup, which country's club won this Champions
+   League final, and "Who am I?" from a player's career.
    Adding one player to `players.json` adds two questions with Learn Cards.
 2. The API sends the question **without the answer**.
 3. The user answers. The API checks it, awards XP, updates statistics, streak and

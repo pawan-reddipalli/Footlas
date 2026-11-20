@@ -110,3 +110,29 @@ class WorldCup(Base):
     fact: Mapped[str] = mapped_column(Text)
 
     winner: Mapped[Country] = relationship()
+
+
+class ChampionsLeagueFinal(Base):
+    """A European Cup / Champions League final. `year` is the year the final was played."""
+
+    __tablename__ = "champions_league_finals"
+    __table_args__ = (
+        CheckConstraint("year >= 1956", name="year_after_first_final"),
+        CheckConstraint("season ~ '^[0-9]{4}-[0-9]{2}$'", name="season_format"),
+        CheckConstraint("winner_id <> runner_up_id", name="winner_is_not_runner_up"),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    year: Mapped[int] = mapped_column(Integer, unique=True)
+    season: Mapped[str] = mapped_column(String(7))  # e.g. "2004-05"
+    winner_id: Mapped[int] = mapped_column(ForeignKey("clubs.id"), index=True)
+    runner_up_id: Mapped[int] = mapped_column(ForeignKey("clubs.id"), index=True)
+    # Winner's score first, e.g. "3–3 (3–2 on penalties)".
+    score: Mapped[str] = mapped_column(String(40))
+    stadium: Mapped[str] = mapped_column(String(120))
+    city: Mapped[str] = mapped_column(String(80))
+    venue_country: Mapped[str] = mapped_column(String(80))
+    fact: Mapped[str] = mapped_column(Text)
+
+    winner: Mapped[Club] = relationship(foreign_keys=[winner_id])
+    runner_up: Mapped[Club] = relationship(foreign_keys=[runner_up_id])

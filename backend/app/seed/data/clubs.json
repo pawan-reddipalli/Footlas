@@ -920,6 +920,16 @@
     "fact": null
   },
   {
+    "slug": "valencia",
+    "name": "Valencia",
+    "country": "ESP",
+    "city": "Valencia",
+    "stadium": "Mestalla",
+    "founded": 1919,
+    "nickname": "Los Che",
+    "fact": "Valencia reached the Champions League final in both 2000 and 2001 and lost both, then won La Liga in 2002 and 2004."
+  },
+  {
     "slug": "vancouver-whitecaps",
     "name": "Vancouver Whitecaps",
     "country": "CAN",

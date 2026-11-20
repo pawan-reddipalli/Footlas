@@ -9,10 +9,11 @@ import random
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
-from app.domains.football.models import Club, Country, Player, WorldCup
+from app.domains.football.models import ChampionsLeagueFinal, Club, Country, Player, WorldCup
 
 POSITIONS = {"GK": "goalkeeper", "DF": "defender", "MF": "midfielder", "FW": "forward"}
 UK_SHAPE = "826"
+UCL_TOPIC = "competition:ucl"
 
 
 def _career_line(player: Player) -> str:
@@ -152,6 +153,39 @@ def _world_cup_questions(world_cups: list[WorldCup]) -> list[dict]:
     ]
 
 
+def _champions_league_questions(finals: list[ChampionsLeagueFinal]) -> list[dict]:
+    questions = []
+    for final in finals:
+        winner, runner_up = final.winner, final.runner_up
+        country = winner.country
+        if not country.map_id:
+            continue
+        season = final.season.replace("-", "–")
+        questions.append(
+            {
+                "source_key": f"ucl_winner_country:{final.year}",
+                "mode": "map",
+                "kind": "ucl_winner_country",
+                "prompt": f"Which country's club won the {final.year} Champions League final?",
+                "difficulty": 3,
+                "payload": {"subject": f"Champions League final {final.year}"},
+                "answer": _map_answer(country),
+                "learn": {
+                    "title": f"{winner.name} won the {season} Champions League",
+                    "body": final.fact,
+                    "facts": [
+                        f"Club: {winner.name} ({country.flag} {country.name})",
+                        f"Final: {winner.name} {final.score} {runner_up.name}",
+                        f"Venue: {final.stadium}, {final.city}, {final.venue_country}",
+                    ]
+                    + _uk_note(country),
+                },
+                "topics": [UCL_TOPIC, f"country:{country.code}"],
+            }
+        )
+    return questions
+
+
 def _who_am_i_questions(players: list[Player]) -> list[dict]:
     questions = []
     for player in players:
@@ -204,10 +238,21 @@ def generate_questions(db: Session) -> list[dict]:
     )
     clubs = list(db.scalars(select(Club).options(selectinload(Club.country)).order_by(Club.slug)))
     world_cups = list(db.scalars(select(WorldCup).order_by(WorldCup.year)))
+    finals = list(
+        db.scalars(
+            select(ChampionsLeagueFinal)
+            .options(
+                selectinload(ChampionsLeagueFinal.winner).selectinload(Club.country),
+                selectinload(ChampionsLeagueFinal.runner_up),
+            )
+            .order_by(ChampionsLeagueFinal.year)
+        )
+    )
     return (
         _country_questions(countries)
         + _nationality_questions(players)
         + _club_questions(clubs)
         + _world_cup_questions(world_cups)
+        + _champions_league_questions(finals)
         + _who_am_i_questions(players)
     )
