@@ -67,7 +67,7 @@ export function PracticeGame({ mode, title }: { mode: Mode; title: string }) {
       <GameHud
         title={title}
         progress={progress}
-        subtitle={<>Practice round · +{score.xp} XP this session</>}
+        subtitle={<>Practice round, +{score.xp} XP this session</>}
         right={<Scoreboard label="correct" value={`${score.correct}/${score.answered}`} />}
       />
       {(error || loadError) && <ErrorNote message={error ?? loadError.message} />}

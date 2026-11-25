@@ -44,15 +44,15 @@ export function ProfileView() {
           <div className="min-w-0">
             <UsernameEditor profile={profile} onSaved={(p) => mutate(p, { revalidate: false })} />
             <p className="text-sm text-muted">
-              {levelName(progress.level)} · joined {new Date(profile.joined_at).toLocaleDateString()} ·{" "}
-              <span className="capitalize">{profile.plan}</span> plan
+              {levelName(progress.level)}, joined {new Date(profile.joined_at).toLocaleDateString()}, on
+              the <span className="capitalize">{profile.plan}</span> plan
             </p>
           </div>
         </div>
         <Football filled={panelsFilled(progress)} interactive className="mx-auto aspect-square w-56 md:w-full" />
       </section>
 
-      <section className="sticker flex flex-col gap-4 rounded-2xl p-5">
+      <section className="flex flex-col gap-4 border-y border-border py-5">
         <XpBar progress={progress} />
         <div className="flex flex-wrap items-center gap-3">
           <StreakBadge streak={progress.streak} />
@@ -65,7 +65,7 @@ export function ProfileView() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <section className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
         <Stat label="Questions" value={stats.answered} />
         <Stat label="Accuracy" value={stats.accuracy === null ? "–" : `${stats.accuracy}%`} />
         <Stat label="Map correct" value={stats.by_mode.map?.correct ?? 0} />
@@ -79,21 +79,15 @@ export function ProfileView() {
             {unlocked}/{profile.achievements.length}
           </span>
         </h2>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {profile.achievements.map((a, i) => (
-            <motion.li
+        <ul className="grid gap-x-8 sm:grid-cols-2">
+          {profile.achievements.map((a) => (
+            <li
               key={a.slug}
-              className={`flex items-center gap-4 rounded-2xl p-4 ${
-                a.unlocked_at ? "sticker" : "border border-dashed border-border"
-              }`}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (i % 6) * 0.05 }}
+              className="flex items-center gap-4 border-b border-border py-4"
             >
               <PinBadge emoji={a.emoji} unlocked={!!a.unlocked_at} size="lg" />
               <div className="flex-1">
-                <p className="font-semibold">{a.name}</p>
+                <p className={`font-semibold ${a.unlocked_at ? "" : "text-muted"}`}>{a.name}</p>
                 <p className="text-sm text-muted">{a.description}</p>
                 {!a.unlocked_at && (
                   <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-muted">
@@ -104,7 +98,7 @@ export function ProfileView() {
                   </div>
                 )}
               </div>
-            </motion.li>
+            </li>
           ))}
         </ul>
       </section>
@@ -114,7 +108,7 @@ export function ProfileView() {
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="sticker rounded-2xl p-4">
+    <div>
       <p className="font-score text-3xl font-black">{value}</p>
       <p className="text-sm text-muted">{label}</p>
     </div>

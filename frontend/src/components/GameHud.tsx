@@ -84,9 +84,8 @@ export function GameHud({
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 16 }}
             >
-              <span className="text-sm font-semibold text-muted">Promoted!</span>
               <span className="font-display text-6xl leading-none font-black uppercase">
-                Level <span className="font-score text-pitch">{levelUp}</span>
+                Promoted to level <span className="font-score">{levelUp}</span>
               </span>
               <span className="text-lg font-semibold">{levelName(levelUp)}</span>
               <button
@@ -95,7 +94,7 @@ export function GameHud({
                 onClick={() => setLevelUp(null)}
                 className="mt-2 rounded-full bg-pitch px-5 py-2 text-sm font-semibold text-on-pitch"
               >
-                A fresh ball to stitch. Carry on
+                Start the next ball
               </button>
             </motion.div>
           </motion.div>

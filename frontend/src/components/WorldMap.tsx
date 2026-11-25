@@ -181,12 +181,6 @@ export function WorldMap({
         onPointerUp={onPointerUp}
         onPointerLeave={onPointerUp}
       >
-        <defs>
-          <pattern id="sea-dots" width="7" height="7" patternUnits="userSpaceOnUse">
-            <circle cx="3.5" cy="3.5" r="0.9" fill="var(--halftone)" />
-          </pattern>
-        </defs>
-        <rect x={0} y={0} width={WIDTH} height={HEIGHT} fill="url(#sea-dots)" />
         {countries.map((c) => (
           <path
             key={c.id}
@@ -309,7 +303,7 @@ function BallGlyph() {
       <clipPath id="ball-glyph-clip">
         <circle cx="50" cy="50" r="47" />
       </clipPath>
-      <circle cx="50" cy="50" r="47" fill="#f8f4ea" />
+      <circle cx="50" cy="50" r="47" fill="#f7f7f4" />
       <polygon points={pent(50, 50, 17, 0)} fill="#1b1913" />
       <g clipPath="url(#ball-glyph-clip)">
       {Array.from({ length: 5 }, (_, i) => {

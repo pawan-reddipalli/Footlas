@@ -19,7 +19,6 @@ const MODES = [
     href: "/play/map",
     title: "World Map",
     text: "Find countries, players' nations, clubs and World Cup winners on the map.",
-    tilt: -2,
     art: (
       <svg viewBox="0 0 64 64" className="h-14 w-14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="32" r="22" />
@@ -32,7 +31,6 @@ const MODES = [
     href: "/play/players",
     title: "Who Am I?",
     text: "Read the scouting report, clue by clue, and name the player.",
-    tilt: 1.5,
     art: (
       <svg viewBox="0 0 64 64" className="h-14 w-14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="22" r="10" />
@@ -65,15 +63,15 @@ export function Dashboard() {
           >
             {!profile ? (
               <>
-                Learn football <span className="text-pitch">by playing it.</span>
+                Learn football by playing it
               </>
             ) : profile.stats.answered > 0 ? (
               <>
-                Back on the pitch, <span className="text-pitch">{profile.username}</span>
+                Back on the pitch, {profile.username}
               </>
             ) : (
               <>
-                Welcome to the squad, <span className="text-pitch">{profile.username}</span>
+                Welcome to the squad, {profile.username}
               </>
             )}
           </motion.h1>
@@ -119,7 +117,7 @@ export function Dashboard() {
       </section>
 
       {progress && (
-        <section className="sticker grid gap-5 rounded-2xl p-5 sm:grid-cols-[1fr_auto] sm:items-center">
+        <section className="grid gap-5 border-y border-border py-5 sm:grid-cols-[1fr_auto] sm:items-center">
           <XpBar progress={progress} />
           <StreakBadge streak={progress.streak} />
         </section>
@@ -127,22 +125,17 @@ export function Dashboard() {
 
       <DailyTicket daily={daily} />
 
-      <section className="grid gap-6 sm:grid-cols-2">
+      <section className="grid gap-x-8 sm:grid-cols-2">
         {MODES.map((mode) => (
-          <motion.div
-            key={mode.href}
-            initial={{ rotate: mode.tilt }}
-            whileHover={{ rotate: 0, y: -6, scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-          >
+          <motion.div key={mode.href} whileTap={{ scale: 0.98 }}>
             <Link
               href={mode.href}
               onClick={() => play("tap")}
-              className="sticker halftone flex h-full items-start gap-4 rounded-2xl p-5"
+              className="group flex h-full items-start gap-4 border-t-2 border-foreground py-5 transition-colors hover:border-pitch"
             >
               <span className="text-pitch">{mode.art}</span>
               <span className="flex flex-col gap-1">
-                <span className="font-display text-3xl leading-none font-black uppercase">
+                <span className="font-display text-3xl leading-none font-black uppercase group-hover:text-pitch-strong">
                   {mode.title}
                 </span>
                 <span className="text-sm text-muted">{mode.text}</span>
@@ -191,7 +184,6 @@ function DailyTicket({ daily }: { daily: DailyState | undefined }) {
         className="perforated relative flex overflow-hidden rounded-2xl bg-pitch text-on-pitch shadow-[0_18px_40px_-20px_rgb(var(--shadow)/0.7)]"
       >
         <div className="flex flex-1 flex-col gap-2 p-6 pt-7">
-          <span className="text-sm font-semibold opacity-80">Daily challenge · {daily ? formatDay(daily.day) : "Today"}</span>
           <span className="font-display text-4xl leading-none font-black uppercase sm:text-5xl">
             {done
               ? `Full time: ${daily.summary.correct}–${daily.summary.total - daily.summary.correct}`
@@ -200,6 +192,7 @@ function DailyTicket({ daily }: { daily: DailyState | undefined }) {
                 : "Kick-off: 10 questions"}
           </span>
           <span className="text-sm opacity-90">
+            {daily ? `Daily challenge for ${formatDay(daily.day)}. ` : "Today's daily challenge. "}
             {done
               ? "Review the match and every Learn Card."
               : "One attempt each. Finish to keep your scarf growing."}

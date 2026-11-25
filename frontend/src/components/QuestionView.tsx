@@ -113,7 +113,7 @@ function ChoiceQuestion({ question, result, pending, onAnswer }: Props) {
     <>
       <Prompt>{question.prompt}</Prompt>
       {question.clues && (
-        <ol className="sticker halftone space-y-0 overflow-hidden rounded-2xl">
+        <ol className="space-y-0 overflow-hidden rounded-2xl border border-border bg-surface">
           <li className="border-b border-border px-4 py-2 text-xs font-semibold text-muted">
             Scouting report
           </li>

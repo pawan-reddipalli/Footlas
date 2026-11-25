@@ -130,7 +130,7 @@ export function DailyGame() {
         <>
           {halfTime && (
             <motion.p
-              className="sticker rounded-2xl px-4 py-3 text-sm"
+              className="border-y border-border py-3 text-sm"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
             >
@@ -140,7 +140,7 @@ export function DailyGame() {
           )}
           <p className="text-sm text-muted">
             Question {current + 1} of {data.items.length}
-            {current === data.items.length - 1 && !data.items[current].result && " · Stoppage time"}
+            {current === data.items.length - 1 && !data.items[current].result && ", stoppage time"}
           </p>
           <QuestionView
             key={data.items[current].question.id}
@@ -168,13 +168,13 @@ function Summary({ state, bonus, celebrate }: { state: DailyState; bonus: number
   }, [celebrate, summary.perfect]);
   return (
     <motion.div
-      className="sticker halftone flex flex-col gap-6 rounded-3xl p-6"
+      className="flex flex-col gap-6 border-t-2 border-foreground pt-6"
       initial={{ opacity: 0, y: 24, rotate: -1 }}
       animate={{ opacity: 1, y: 0, rotate: 0 }}
     >
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold text-muted">Full-time report</p>
+          <h2 className="sr-only">Full-time report</h2>
           <p className="font-score text-7xl leading-none font-black">
             {summary.correct}
             <span className="text-muted">–</span>

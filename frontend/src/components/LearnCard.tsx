@@ -47,9 +47,8 @@ export function LearnCard({ result }: { result: AnswerResult }) {
             </motion.span>
           )}
         </header>
-        <div className="halftone p-5">
-          <p className="text-xs font-semibold text-muted">Learn Card</p>
-          <h3 className="font-display mt-1 text-3xl leading-none font-black uppercase">{learn.title}</h3>
+        <div className="p-5">
+          <h3 className="font-display text-3xl leading-none font-black uppercase">{learn.title}</h3>
           <p className="mt-3 max-w-prose leading-relaxed">{learn.body}</p>
           {learn.facts.length > 0 && (
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
