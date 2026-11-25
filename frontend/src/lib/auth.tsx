@@ -116,7 +116,7 @@ export function AccountControls({ showSignUp = false }: { showSignUp?: boolean }
 
 export function SignInPrompt({ message }: { message: string }) {
   return (
-    <div className="sticker halftone mx-auto flex max-w-md flex-col items-center gap-4 rounded-2xl p-8 text-center">
+    <div className="sticker mx-auto flex max-w-md flex-col items-center gap-4 rounded-2xl p-8 text-center">
       <p className="font-display text-3xl leading-none font-black uppercase">{message}</p>
       <p className="text-sm text-muted">
         Your XP, streak and achievements are saved to your account.

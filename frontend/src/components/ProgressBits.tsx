@@ -149,7 +149,7 @@ export function UnlockedToast({ achievements }: { achievements: UnlockedAchievem
             animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 380, damping: 20, delay: i * 0.12 }}
-            className="sticker flex items-center gap-4 rounded-2xl px-4 py-3"
+            className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-4 py-3 shadow-[0_10px_24px_-14px_rgb(var(--shadow)/0.45)]"
           >
             <PinBadge emoji={a.emoji} unlocked />
             <div>

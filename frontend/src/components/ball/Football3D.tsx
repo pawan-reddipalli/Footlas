@@ -22,7 +22,7 @@ export type Football3DProps = {
 };
 
 const PALETTE: Record<BallTheme, { base: string; pent: string; fill: string; rim: string; seam: string }> = {
-  light: { base: "#f8f4ea", pent: "#1b1913", fill: "#e3a51f", rim: "#fff1cf", seam: "#2b261c" },
+  light: { base: "#f7f7f4", pent: "#1b1913", fill: "#e3a51f", rim: "#ffffff", seam: "#2b261c" },
   dark: { base: "#eef1e6", pent: "#0d1912", fill: "#f5c542", rim: "#bfe3ff", seam: "#121c15" },
 };
 

@@ -8,7 +8,7 @@ new screens inside it.
 | | Light: Matchday | Dark: Floodlit |
 | --- | --- | --- |
 | Feel | A 90s matchday programme and sticker album | A night match under floodlights, chalk on a tactics board |
-| Base | Programme paper `--background` | Night pitch with mown stripes |
+| Base | Chalk white `--background` (a neutral off-white, never cream) | Night pitch with mown stripes |
 | Accent | Pitch green `--pitch`, programme red `--danger` | Bright pitch green, highlighter yellow `--pick` |
 | Rewards | Gold `--gold` (text uses `--gold-ink`) | Gold |
 
@@ -21,13 +21,15 @@ next-themes sets `data-theme` on `<html>`; Tailwind's `dark:` variant follows it
 - **Schibsted Grotesk** (`font-sans`): reading text.
 - **Doto** (`font-score`): numbers that tick, like scoreboards, minutes, XP and stats.
 
-No all-caps tracked eyebrow labels, no gradient text, no emoji as UI icons (achievement emoji from
-the API sit inside pin badges).
+No eyebrow labels above headings, no gradient text, no emoji as UI icons (achievement emoji from
+the API sit inside pin badges). Headlines are one colour: don't pick out a word in green or italics.
 
 ## Surfaces
 
-- `.sticker`: thick paper border with a lifted shadow. Use for cards.
-- `.halftone`: programme dot texture, for backgrounds inside stickers.
+- `.sticker`: thick border with a lifted shadow. Only for things you hold: Learn Cards, the map,
+  dialogs and auth panels. Group everything else with whitespace and a hairline rule
+  (`border-y border-border`), not another card.
+- No textures (halftone, dithering, grain) on surfaces.
 - `.perforated`: ticket-stub edge, for the daily challenge ticket.
 
 ## The football
@@ -53,3 +55,6 @@ the API sit inside pin badges).
 
 Talk like a mate at the pub, not a SaaS landing page: "Back of the net!", "Off the post",
 "Full-time report". Every screen still teaches a fact.
+
+Avoid the generic AI-site tells: no `·` separators between words (use commas or a new line),
+no arrows on every button, no sparkle icons, no fading sections in on scroll, no made-up stats.
